@@ -1,6 +1,5 @@
 package promo;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Stagiaire extends Apprenant {
@@ -15,8 +14,8 @@ public class Stagiaire extends Apprenant {
 
 
 	protected Stagiaire(String nom, String prenom, Integer annee, Integer mois, Integer jour,
-			ArrayList<String> contacts, String nomEntreprise, int retards, int asbsences, String promo, String typAllo, double allocation) {
-		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, asbsences, promo);
+			ArrayList<String> contacts, int retards, int asbsences, String promo, String typAllo, double allocation) {
+		super(nom, prenom, annee, mois, jour, contacts, typAllo, retards, asbsences, promo);
 		this.typAllo = typAllo;
 		this.allocation = allocation;
 }
@@ -25,8 +24,8 @@ public class Stagiaire extends Apprenant {
 
 	@Override
 	public String toString() {
-		return "Stagiaire [typAllo=" + typAllo + ", allocation=" + allocation + ", nom=" + nom + ", prenom=" + prenom
-				+ ", dateInscri=" + dateInscri + ", contacts=" + contacts + ", promo=" + promo + "]";
+		return "Stagiaire :\nType d'allocation -> " + typAllo + " --- Allocation -> " + allocation + " --- Nom -> " + nom + " --- Prenom -> " + prenom
+				+ " --- Date inscription ->" + dateInscri + " --- Contacts -> " + contacts + "Promo -> " + promo;
 	}
 
 	

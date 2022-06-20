@@ -17,8 +17,8 @@ public class Alternant extends Apprenant{
 
 	@Override
 	public String toString() {
-		return "Alternant [salaire=" + salaire + ", nom=" + nom + ", prenom=" + prenom + ", dateInscri=" + dateInscri
-				+ ", promo=" + promo + "]";
+		return "Alternant :\nsalaire -> " + salaire + " --- Nom -> " + nom + " --- Prenom -> " + prenom + " --- Date inscription : " + dateInscri
+				+ " --- Promo : " + promo;
 	}
 	
 
