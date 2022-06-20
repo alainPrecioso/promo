@@ -18,7 +18,14 @@ public class Promo {
 		this.nomPromo = nomPromo;
 		this.dateDebut = dateDebut;
 	}
+	
+
+	@Override
+	public String toString() {
+		return "Promo [eleve=" + eleve + ", nomPromo=" + nomPromo + ", dateDebut=" + dateDebut + "]";
 	}
+
+
 	public Promo() {
 		// TODO Auto-generated constructor stub
 	
