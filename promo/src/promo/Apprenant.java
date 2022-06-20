@@ -10,30 +10,37 @@ public abstract class Apprenant {
 	protected ArrayList<String> contacts;
 	protected String nomEntreprise;
 	protected int retards; //minutes
-	protected int asbsences; //jours
+	protected int absences; //jours
 	protected String promo;
+	protected boolean alertAbscences;
 	
 	public Apprenant() {
 		
 	}
 	
 	
-	public Apprenant(String nom, String prenom, LocalDate dateInscri, ArrayList<String> contacts, String nomEntreprise,
+	public Apprenant(String nom, String prenom, Integer annee, Integer mois, Integer jour, ArrayList<String> contacts, String nomEntreprise,
 			int retards, int asbsences, String promo) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
-		this.dateInscri = dateInscri;
+		this.dateInscri = LocalDate.of(annee, mois, jour);
 		this.contacts = contacts;
 		this.nomEntreprise = nomEntreprise;
 		this.retards = retards;
-		this.asbsences = asbsences;
+		this.absences = asbsences;
 		this.promo = promo;
 	}
 
 
 
 
+
+
+	@Override
+	public String toString() {
+		return "Apprenant [nom=" + nom + ", prenom=" + prenom + ", dateInscri=" + dateInscri + ", promo=" + promo + "]";
+	}
 
 
 	public String getNom() {
@@ -66,23 +73,56 @@ public abstract class Apprenant {
 	public void setNomEntreprise(String nomEntreprise) {
 		this.nomEntreprise = nomEntreprise;
 	}
-	public int getRetards() {
-		return retards;
+	public String getRetards() {
+		String retardsString = Integer.toString(retards) + " minutes.";
+		
+		if (retards > 30) {
+			retardsString += " Alerte retards";
+		}
+		
+		
+		return retardsString;
 	}
 	public void setRetards(int retards) {
 		this.retards = retards;
 	}
-	public int getAsbsences() {
-		return asbsences;
+	
+	public int getAbsences() {
+		return absences;
+	}
+	
+	public String getAbsencesAlerte() {
+		String absencesString = Integer.toString(absences) + " jours.";
+		
+		if (alertAbscences == true) {
+			absencesString += " Alerte abscences";
+		}
+		
+		return absencesString;
 	}
 	public void setAsbsences(int asbsences) {
-		this.asbsences = asbsences;
+		this.absences = asbsences;
 	}
 	public String getPromo() {
 		return promo;
 	}
 	public void setPromo(String promo) {
 		this.promo = promo;
+	}
+
+
+	public boolean isAlertAbscences() {
+		return alertAbscences;
+	}
+
+
+	public void setAlertAbscences(boolean alertAbscences) {
+		this.alertAbscences = alertAbscences;
+	}
+
+
+	public void setAbsences(int absences) {
+		this.absences = absences;
 	}
 	
 	
