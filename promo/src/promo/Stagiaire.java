@@ -11,8 +11,24 @@ public class Stagiaire {
 
 	public Stagiaire(String typAllo, Double allocation) {
 		super();
-		typAllo = typAllo;
-		allocation = allocation;
+		this.typAllo = typAllo;
+		this.allocation = allocation;
+	}
+
+	protected String getTypAllo() {
+		return typAllo;
+	}
+
+	protected void setTypAllo(String typAllo) {
+		this.typAllo = typAllo;
+	}
+
+	protected Double getAllocation() {
+		return allocation;
+	}
+
+	protected void setAllocation(Double allocation) {
+		this.allocation = allocation;
 	}
 
 	@Override
