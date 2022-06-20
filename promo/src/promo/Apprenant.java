@@ -13,7 +13,29 @@ public abstract class Apprenant {
 	protected int asbsences; //jours
 	protected String promo;
 	
+	public Apprenant() {
+		
+	}
 	
+	
+	public Apprenant(String nom, String prenom, LocalDate dateInscri, ArrayList<String> contacts, String nomEntreprise,
+			int retards, int asbsences, String promo) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateInscri = dateInscri;
+		this.contacts = contacts;
+		this.nomEntreprise = nomEntreprise;
+		this.retards = retards;
+		this.asbsences = asbsences;
+		this.promo = promo;
+	}
+
+
+
+
+
+
 	public String getNom() {
 		return nom;
 	}
