@@ -2,8 +2,8 @@ package promo;
 
 public class Stagiaire {
 	
-	protected String TypAllo;
-	protected Double Allocation;
+	protected String typAllo;
+	protected Double allocation;
 
 	public Stagiaire() {
 		
@@ -11,13 +11,13 @@ public class Stagiaire {
 
 	public Stagiaire(String typAllo, Double allocation) {
 		super();
-		TypAllo = typAllo;
-		Allocation = allocation;
+		typAllo = typAllo;
+		allocation = allocation;
 	}
 
 	@Override
 	public String toString() {
-		return "Stagiaire [TypAllo=" + TypAllo + ", Allocation=" + Allocation + "]";
+		return "Stagiaire [TypAllo=" + typAllo + ", Allocation=" + allocation + "]";
 	}
 
 }

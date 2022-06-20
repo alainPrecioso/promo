@@ -1,7 +1,7 @@
 package promo;
 
 public class Alternant {
-	protected String Salaire;
+	protected String salaire;
 
 	public Alternant() {
 		
@@ -9,12 +9,12 @@ public class Alternant {
 
 	public Alternant(String salaire) {
 		super();
-		Salaire = salaire;
+		salaire = salaire;
 	}
 
 	@Override
 	public String toString() {
-		return "Alternant [Salaire=" + Salaire + "]";
+		return "Alternant [Salaire=" + salaire + "]";
 	}
 
 }
