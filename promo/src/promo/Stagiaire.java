@@ -12,15 +12,23 @@ public class Stagiaire extends Apprenant {
 		
 	}
 
-	public Stagiaire(String nom, String prenom, LocalDate dateInscri, ArrayList<String> contacts, String typAllo, Double allocation) {
-		super();
+
+
+	protected Stagiaire(String nom, String prenom, Integer annee, Integer mois, Integer jour,
+			ArrayList<String> contacts, String nomEntreprise, int retards, int asbsences, String promo, String typAllo, double allocation) {
+		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, asbsences, promo);
 		this.typAllo = typAllo;
 		this.allocation = allocation;
-	}
+}
+
+
 
 	@Override
 	public String toString() {
-		return "Stagiaire [TypAllo=" + typAllo + ", Allocation=" + allocation + "]";
+		return "Stagiaire [typAllo=" + typAllo + ", allocation=" + allocation + ", nom=" + nom + ", prenom=" + prenom
+				+ ", dateInscri=" + dateInscri + ", contacts=" + contacts + ", promo=" + promo + "]";
 	}
+
+	
 
 }
