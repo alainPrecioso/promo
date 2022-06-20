@@ -1,13 +1,13 @@
 package promo;
 
 public class Alternant {
-	String Salaire;
+	protected String Salaire;
 
 	public Alternant() {
 		
 	}
 
-	protected Alternant(String salaire) {
+	public Alternant(String salaire) {
 		super();
 		Salaire = salaire;
 	}
