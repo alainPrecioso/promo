@@ -19,7 +19,7 @@ public class Promo {
 		this.dateDebut = dateDebut;
 	}
 	
-
+// creation methode toString
 	@Override
 	public String toString() {
 		return "Promo [eleve=" + eleve + ", nomPromo=" + nomPromo + ", dateDebut=" + dateDebut + "]";
