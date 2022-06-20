@@ -1,6 +1,9 @@
 package promo;
 
-public class Stagiaire {
+import java.time.LocalDate;
+import java.util.ArrayList;
+
+public class Stagiaire extends Apprenant {
 	
 	protected String typAllo;
 	protected Double allocation;
@@ -9,7 +12,7 @@ public class Stagiaire {
 		
 	}
 
-	public Stagiaire(String typAllo, Double allocation) {
+	public Stagiaire(String nom, String prenom, LocalDate dateInscri, ArrayList<String> contacts, String typAllo, Double allocation) {
 		super();
 		typAllo = typAllo;
 		allocation = allocation;
