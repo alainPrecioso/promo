@@ -9,7 +9,15 @@ public class Alternant {
 
 	public Alternant(String salaire) {
 		super();
-		salaire = salaire;
+		this.salaire = salaire;
+	}
+
+	protected String getSalaire() {
+		return salaire;
+	}
+
+	protected void setSalaire(String salaire) {
+		this.salaire = salaire;
 	}
 
 	@Override
