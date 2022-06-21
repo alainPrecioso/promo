@@ -1,8 +1,12 @@
 package utils;
 
+import java.beans.Encoder;
+import java.beans.Expression;
+import java.beans.PersistenceDelegate;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
+import java.time.LocalDate;
 
 public class Ser {
 
@@ -34,6 +38,16 @@ public class Ser {
 		fileName += ".xml";
 		FileOutputStream fileOut = new FileOutputStream(fileName);
 		XMLEncoder out = new XMLEncoder(fileOut);
+		out.setPersistenceDelegate(LocalDate.class,
+                new PersistenceDelegate() {
+                    @Override
+                    protected Expression instantiate(Object localDate, Encoder encdr) {
+                        return new Expression(localDate,
+                                LocalDate.class,
+                                "parse",
+                                new Object[]{localDate.toString()});
+                    }
+                });
 		out.writeObject(object);
 		out.close();
 		fileOut.close();
