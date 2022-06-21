@@ -20,8 +20,9 @@ public class Stagiaire extends Apprenant {
 }
 	@Override
 	public String toString() {
-		return "Stagiaire --> Type d'allocation -> " + typAllo + " --- Allocation -> " + allocation + " --- Nom -> " + nom + " --- Prenom -> " + prenom
-				+ " --- Date inscription ->" + dateInscri + " --- Contacts -> " + contacts + "Promo -> " + promo;
+		return "Stagiaire --> "
+				+ "|| Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri+
+				"  || Promo: " +promo+ " || Type Allocation: " +typAllo+ " || Allocation: " +allocation;
 	}
 
 	@Override

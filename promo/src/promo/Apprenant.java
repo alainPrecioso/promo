@@ -121,7 +121,7 @@ public abstract class Apprenant {
 	
 	@Override
 	public String toString() {
-		return "Apprenant [nom=" + nom + ", prenom=" + prenom + ", dateInscri=" + dateInscri + ", promo=" + promo + "]";
+		return "Apprenant --> Nom: " + nom + "|| Prenom: " +prenom+ " || Date d'inscription " +dateInscri+ " || Promo: " +promo;
 	}
 	
 	public String toStringComplet() {
@@ -130,7 +130,7 @@ public abstract class Apprenant {
 		return "Stagiaire --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri+
 				" || Promo: " +promo+ " || Type Allocation: " +typAllo+ " || Allocation: " +allocation+ 
 			    " || Entreprise: " +nomEntreprise+ " || Contacts: " +contacts+
-				"||||  Retards: " +retards+ " || Absences : "+" || Contacts: " + contacts ;
+				"||||  Retards: " +retards+ " || Absences : " +absences;
 	}
 	
 }
