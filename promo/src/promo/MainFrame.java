@@ -81,22 +81,7 @@ public class MainFrame extends JFrame {
 		JButton afficherApprenant = new JButton("Infos complètes");
 		afficherApprenant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<String> selectedApprenant = new ArrayList<String>();
-				Object selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0);
-				if (selApp instanceof Stagiaire) {
-					Stagiaire app = (Stagiaire) selApp;
-					selectedApprenant.add(app.toStringComplet());
-					selectedApprenant.addAll(app.getContacts());
-				}
-				if (selApp instanceof Alternant) {
-					Alternant app = (Alternant) selApp;
-					selectedApprenant.add(app.toStringComplet());
-					selectedApprenant.addAll(app.getContacts());
-				}
-				//selectedApprenant.add(selApp.toStringComplet());
-				spot = generalJList.getSelectedIndex();
-				
-				detailedList.setListData(selectedApprenant.toArray());
+				printApprenant(generalJList);
 			}
 		});
 		panelS.setLayout(new BorderLayout(0, 0));
@@ -116,7 +101,7 @@ public class MainFrame extends JFrame {
 		retardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setRetards(Integer.valueOf(textField.getText()));
-				
+				printApprenant(generalJList);
 			}
 		});
 		panelSC.add(retardButton);
@@ -125,7 +110,7 @@ public class MainFrame extends JFrame {
 		absenceButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setAbsences(Integer.valueOf(textField.getText()));
-				
+				printApprenant(generalJList);
 			}
 		});
 		panelSC.add(absenceButton);
@@ -140,5 +125,24 @@ public class MainFrame extends JFrame {
 		contentPane.add(panelE, BorderLayout.EAST);
 	}
 
+	
+	public void printApprenant(JList generalJList) {
+		ArrayList<String> selectedApprenant = new ArrayList<String>();
+		Object selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0);
+		if (selApp instanceof Stagiaire) {
+			Stagiaire app = (Stagiaire) selApp;
+			selectedApprenant.add(app.toStringComplet());
+			selectedApprenant.addAll(app.getContacts());
+		}
+		if (selApp instanceof Alternant) {
+			Alternant app = (Alternant) selApp;
+			selectedApprenant.add(app.toStringComplet());
+			selectedApprenant.addAll(app.getContacts());
+		}
+		//selectedApprenant.add(selApp.toStringComplet());
+		spot = generalJList.getSelectedIndex();
+		
+		detailedList.setListData(selectedApprenant.toArray());
+	}
 
 }
