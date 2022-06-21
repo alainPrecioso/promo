@@ -20,7 +20,7 @@ public abstract class Apprenant {
 	
 	
 	public Apprenant(String nom, String prenom, Integer annee, Integer mois, Integer jour, ArrayList<String> contacts, String nomEntreprise,
-			int retards, int asbsences, String promo) {
+			int retards, int absences, String promo) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -28,7 +28,7 @@ public abstract class Apprenant {
 		this.contacts = contacts;
 		this.nomEntreprise = nomEntreprise;
 		this.retards = retards;
-		this.absences = asbsences;
+		this.absences = absences;
 		this.promo = promo;
 	}
 
