@@ -12,19 +12,28 @@ import utils.Ser;
 
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class MainFrame extends JFrame {
 
-	private JPanel contentPane;
+	JPanel contentPane;
 	JComboBox comboBox;
 	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
 	JList detailedList;
-	private JTextField textField;
+	JTextField textField;
 	Integer spot;
+	Promo affichagePromo;
+	JLabel elapsedTime = new JLabel();
+	JButton afficherApprenant;
+	JButton retardButton;
+	JButton absenceButton;
 
 	/**
 	 * Launch the application.
@@ -57,7 +66,10 @@ public class MainFrame extends JFrame {
 		contentPane.add(panelN, BorderLayout.NORTH);
 		panelN.setLayout(new BorderLayout(0, 0));
 
-		JList generalJList = new JList();
+		DefaultListModel model = new DefaultListModel();
+		JList generalJList = new JList(model);
+		
+		
 		panelN.add(generalJList, BorderLayout.SOUTH);
 
 
@@ -66,19 +78,51 @@ public class MainFrame extends JFrame {
 		panelN.add(comboBox, BorderLayout.NORTH);
 
 		JButton afficherPromo = new JButton("Afficher Promo");
+		
 		afficherPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Promo afficherPromo = (Promo) comboBox.getSelectedItem();
-				generalJList.setListData(afficherPromo.getEleve().toArray());
+				affichagePromo = (Promo) comboBox.getSelectedItem();
+				afficherApprenant.setVisible(true);
+				model.clear();
+				model.addAll(affichagePromo.getEleve());
+				//generalJList.setListData(afficherPromo.getEleve().toArray());
+				elapsedTime.setText(String.valueOf(Duration.between(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays()));
+				panelN.add(elapsedTime, BorderLayout.WEST);
 
 			}
 		});
 		panelN.add(afficherPromo, BorderLayout.EAST);
+		
+		JPanel panel = new JPanel();
+		panelN.add(panel, BorderLayout.CENTER);
+		
+		JButton alertesButton = new JButton("Alertes");
+		alertesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				model.clear();
+				afficherApprenant.setVisible(true);
+				for (Promo promo : promos) {
+					for (Apprenant apprenant : promo.getEleve()) {
+						if (apprenant.isAlertAbsences() == true || apprenant.isAlertRetards() == true) {
+							model.addElement(apprenant);
+						}
+					}
+				}
+				
+			}
+		});
+		panel.add(alertesButton);
+		
+		
+		
+		
+		
 
 		JPanel panelS = new JPanel();
 		contentPane.add(panelS, BorderLayout.SOUTH);
 		
-		JButton afficherApprenant = new JButton("Infos complètes");
+		afficherApprenant = new JButton("Infos complètes");
+		afficherApprenant.setVisible(false);
 		afficherApprenant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				printApprenant(generalJList);
@@ -94,23 +138,28 @@ public class MainFrame extends JFrame {
 		panelS.add(panelSC, BorderLayout.CENTER);
 		
 		textField = new JTextField();
+		textField.setVisible(false);
 		panelSC.add(textField);
 		textField.setColumns(10);
 		
-		JButton retardButton = new JButton("Ajout Retard");
+		retardButton = new JButton("Ajout Retard");
+		retardButton.setVisible(false);
 		retardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addRetards(Integer.valueOf(textField.getText()));
 				printApprenant(generalJList);
+				Ser.save("promos", promos);
 			}
 		});
 		panelSC.add(retardButton);
 		
-		JButton absenceButton = new JButton("Ajout Absence");
+		absenceButton = new JButton("Ajout Absence");
+		absenceButton.setVisible(false);
 		absenceButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addAbsences(Integer.valueOf(textField.getText()));
 				printApprenant(generalJList);
+				Ser.save("promos", promos);
 			}
 		});
 		panelSC.add(absenceButton);
@@ -127,6 +176,9 @@ public class MainFrame extends JFrame {
 
 	
 	public void printApprenant(JList generalJList) {
+		textField.setVisible(true);
+		retardButton.setVisible(true);
+		absenceButton.setVisible(true);
 		ArrayList<String> selectedApprenant = new ArrayList<String>();
 		Object selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0);
 		if (selApp instanceof Stagiaire) {

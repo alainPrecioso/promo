@@ -8,7 +8,7 @@ public class Promo {
 	
 	protected String nomPromo;
 	private LocalDate dateDebut;
-	private Integer duree;
+	private int duree;
 	
 	
 	
@@ -20,14 +20,15 @@ public class Promo {
 		this.duree = duree;
 	}
 	
+	
 	public Promo() {
 		// TODO Auto-generated constructor stub
 	
 	}
-	public Integer getDuree() {
+	public int getDuree() {
 		return duree;
 	}
-	public void setDuree(Integer duree) {
+	public void setDuree(int duree) {
 		this.duree = duree;
 	}
 	

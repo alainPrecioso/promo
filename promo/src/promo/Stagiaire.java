@@ -13,9 +13,9 @@ public class Stagiaire extends Apprenant {
 
 
 	protected Stagiaire(String nom, String prenom, Integer annee, Integer mois, Integer jour,
-			ArrayList<String> contacts, String nomEntreprise, int retards, int absences, String promo, String typAllo, String allocation) {
+			ArrayList<String> contacts, String nomEntreprise, String typAllo, String allocation) {
 		
-		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, absences, promo);
+		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise);
 		this.typAllo = typAllo;
 		this.allocation = allocation;
 }
@@ -42,19 +42,21 @@ public class Stagiaire extends Apprenant {
 
 	@Override
 	public String toString() {
-		return "Stagiaire --> "
-				+ "|| Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri+
-				"  || Promo: " +promo+ " || Type Allocation: " +typAllo+ " || Allocation: " +allocation;
+		String str = "Stagiaire --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri;
+		if (alertAbsences == true || alertRetards == true) {
+			str += " ALERTE";
+		}
+		return str;
 	}
 
 	@Override
 	public String toStringComplet() {
-		String str = "" +nom+ ", " +prenom+ ", " +dateInscri+
+		String str = nom+ ", " +prenom+ ", " +dateInscri+
 				", " +promo+ ", " +typAllo+ ", " +allocation+ 
-			    ", " +nomEntreprise+ ", "
-				+retards+ ", "+getAbsencesAlerte();
-		if (retards >= 30) {
-			str += " ALERTE RETARDS";
+			    "€, " +nomEntreprise+ ", "
+				+retards+ " minutes, "+absences;
+		if (alertAbsences == true || alertRetards == true) {
+			str += " ALERTE";
 		}
 			return str;
 		}

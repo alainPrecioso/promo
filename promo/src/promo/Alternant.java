@@ -10,8 +10,8 @@ public class Alternant extends Apprenant{
 	}
 
 	public Alternant(String nom, String prenom, Integer annee, Integer mois, Integer jour, ArrayList<String> contacts,
-			String nomEntreprise, int retards, int asbsences, String promo, String salaire ) {
-		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, asbsences, promo);
+			String nomEntreprise, String salaire ) {
+		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise);
 	this.salaire = salaire;
 	
 	}
@@ -27,20 +27,24 @@ public class Alternant extends Apprenant{
 	@Override
 	public String toString() {
 		String str = "Alternant --> "
-				+ " || Nom: " +nom+ " || Prenom: " +prenom+ " || Date inscription: " + dateInscri
-				+ " || Promo: " +promo+ " || Salaire -> " + salaire;
+				+ " || Nom: " +nom+ " || Prenom: " +prenom+ " || Date inscription: " + dateInscri;
 		
-		if (retards >= 30) {
-			str += " ALERTE RETARDS";
+		if (alertAbsences == true || alertRetards == true) {
+			str += " ALERTE";
 		}
 		return str;
 	}
 	
 	@Override
 	public String toStringComplet() {
-		return ""+nom+", "+prenom+", "+dateInscri+", "
-				 +promo+", "+salaire+", "+nomEntreprise+", "
-				 +retards+", "+getAbsencesAlerte();
+		String str = nom+", "+prenom+", "+dateInscri+", "
+				 +promo+", "+salaire+"€, "+nomEntreprise+", "
+				 +retards+" minutes, "+absences;
+		
+		if (alertAbsences == true || alertRetards == true) {
+			str += " ALERTE";
+		}
+		return str;
 	}
 	
 
