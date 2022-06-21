@@ -76,11 +76,11 @@ public class PromoGenerator {
 	public static String randomEmployer() {
 		ArrayList<String> employers = new ArrayList<String>();
 		Collections.addAll(employers, "American Family Insurance Group", "IQVIA Holdings", "Lincoln National", "Ingredion", "Alcoa", "GameStop", "Costco Wholesale", "Reinsurance Group of America", "KeyCorp", "Brighthouse Financial", "Dollar General", "Dana", "Hormel Foods", "Albertsons", "News Corp.", "Energy Transfer", "United States Steel", "Abbott Laboratories", "XPO Logistics", "WESCO International", "Clorox", "Tech Data", "Dick's Sporting Goods", "McDonald's", "Advance Auto Parts", "AutoZone", "Hewlett Packard Enterprise", "NVR", "Waste Management", "Ball", "Danaher", "Molson Coors Brewing", "Constellation Brands", "Adobe", "Nordstrom", "Old Republic International", "AT&T", "Omnicom Group", "Bank of New York Mellon", "Las Vegas Sands", "PVH", "Cummins", "Publix Super Markets", "Northrop Grumman", "ADP", "Graphic Packaging Holding", "Liberty Mutual Insurance Group", "Franklin Resources", "Calpine", "Arthur J. Gallagher", "Qualcomm", "Targa Resources", "Henry Schein", "Eli Lilly", "Lear", "HollyFrontier", "Illinois Tool Works", "MetLife", "Stanley Black & Decker", "R.R. Donnelley & Sons", "Hertz Global Holdings", "United Technologies", "Expedia Group", "DTE Energy", "Dover", "Mutual of Omaha Insurance", "Western Union", "Duke Energy", "MasTec", "PayPal Holdings", "Plains GP Holdings", "Post Holdings", "FedEx", "US Foods Holding", "CenturyLink", "PG&E", "Citizens Financial Group", "Olin", "Best Buy", "DXC Technology", "Southwest Airlines", "Insight Enterprises", "Republic Services", "American Airlines Group", "Cognizant Technology Solutions", "HP", "Murphy USA", "A-Mark Precious Metals", "Lam Research", "Expeditors Intl. of Washington", "Verizon Communications", "Genworth Financial", "Builders FirstSource", "DISH Network", "Amgen", "Occidental Petroleum", "Lithia Motors", "Cardinal Health", "NCR", "Tapestry");
-		return employers.get(ThreadLocalRandom.current().nextInt(0, employers.size()+1));
+		return employers.get(ThreadLocalRandom.current().nextInt(0, employers.size()));
 	}
 	
 	public static String randomSalary() {
-		return String.valueOf(ThreadLocalRandom.current().nextInt(1200, 1501));
+		return String.valueOf(ThreadLocalRandom.current().nextInt(1500, 2001));
 	}
 	
 	public static String randomType() {
