@@ -15,6 +15,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.awt.event.ActionEvent;
@@ -68,7 +70,11 @@ public class MainFrame extends JFrame {
 
 		DefaultListModel model = new DefaultListModel();
 		JList generalJList = new JList(model);
-		
+		generalJList.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent evt) {
+				printApprenant(generalJList);
+			}
+		});
 		
 		panelN.add(generalJList, BorderLayout.SOUTH);
 
@@ -120,6 +126,9 @@ public class MainFrame extends JFrame {
 
 		JPanel panelS = new JPanel();
 		contentPane.add(panelS, BorderLayout.SOUTH);
+		
+		
+		
 		
 		afficherApprenant = new JButton("Infos complètes");
 		afficherApprenant.setVisible(false);
