@@ -86,7 +86,7 @@ public class MainFrame extends JFrame {
 	public Promo genererPromo() {
 		ArrayList<String> contact = new ArrayList<String>();
 		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
-		list.add(new Alternant("john", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
+		list.add(new Alternant("java", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
 		list.add(new Alternant("jones", "boby", 2022, 03, 01, contact, "domédia", 0, 0, "java", "1800"));
 		list.add(new Alternant("bertrand", "rene", 2022, 05, 01, contact, "lava", 0, 0, "java", "1500"));
 		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
@@ -103,7 +103,7 @@ public class MainFrame extends JFrame {
 	public Promo genererPromo2() {
 		ArrayList<String> contact = new ArrayList<String>();
 		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
-		list.add(new Alternant("john", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
+		list.add(new Alternant("php", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
 		list.add(new Alternant("jones", "boby", 2022, 03, 01, contact, "domédia", 0, 0, "java", "1800"));
 		list.add(new Alternant("bertrand", "rene", 2022, 05, 01, contact, "lava", 0, 0, "java", "1500"));
 		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
