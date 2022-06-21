@@ -13,7 +13,6 @@ public class Stagiaire extends Apprenant {
 	}
 
 
-
 	protected Stagiaire(String nom, String prenom, Integer annee, Integer mois, Integer jour,
 			ArrayList<String> contacts, String nomEntreprise, int retards, int asbsences, String promo, String typAllo, double allocation) {
 		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, asbsences, promo);
