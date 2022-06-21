@@ -126,8 +126,6 @@ public abstract class Apprenant {
 	}
 	
 	
-	
-	
-	
+
 
 }

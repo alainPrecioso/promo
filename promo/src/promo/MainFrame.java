@@ -45,44 +45,44 @@ public class MainFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		JPanel panelN = new JPanel();
 		contentPane.add(panelN, BorderLayout.NORTH);
 		panelN.setLayout(new BorderLayout(0, 0));
-		
+
 		JList generalJList = new JList();
 		panelN.add(generalJList, BorderLayout.SOUTH);
-		
-		
-		
+
+
+
 		promos.add(genererPromo());
 		promos.add(genererPromo2());
 		comboBox = new JComboBox(promos.toArray());
 		panelN.add(comboBox, BorderLayout.NORTH);
-		
+
 		JButton afficherPromo = new JButton("Afficher Promo");
 		afficherPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Promo afficherPromo = (Promo) comboBox.getSelectedItem();
 				generalJList.setListData(afficherPromo.getEleve().toArray());
-				
+
 			}
 		});
 		panelN.add(afficherPromo, BorderLayout.EAST);
-		
+
 		JPanel panelS = new JPanel();
 		contentPane.add(panelS, BorderLayout.SOUTH);
-		
+
 		JPanel panelW = new JPanel();
 		contentPane.add(panelW, BorderLayout.WEST);
-		
+
 		JPanel panelC = new JPanel();
 		contentPane.add(panelC, BorderLayout.CENTER);
-		
+
 		JPanel panelE = new JPanel();
 		contentPane.add(panelE, BorderLayout.EAST);
 	}
-	
+
 	public Promo genererPromo() {
 		ArrayList<String> contact = new ArrayList<String>();
 		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
