@@ -7,17 +7,24 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import utils.Ser;
+
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
 	JComboBox comboBox;
-	ArrayList<Promo> promos = new ArrayList<Promo>();
+	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
+	JList detailedList;
+	private JTextField textField;
+	Integer spot;
 
 	/**
 	 * Launch the application.
@@ -55,8 +62,6 @@ public class MainFrame extends JFrame {
 
 
 
-		promos.add(genererPromo());
-		promos.add(genererPromo2());
 		comboBox = new JComboBox(promos.toArray());
 		panelN.add(comboBox, BorderLayout.NORTH);
 
@@ -72,52 +77,69 @@ public class MainFrame extends JFrame {
 
 		JPanel panelS = new JPanel();
 		contentPane.add(panelS, BorderLayout.SOUTH);
-
+		
+		JButton afficherApprenant = new JButton("Infos complètes");
+		afficherApprenant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<String> selectedApprenant = new ArrayList<String>();
+				Object selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0);
+				if (selApp instanceof Stagiaire) {
+					Stagiaire app = (Stagiaire) selApp;
+					selectedApprenant.add(app.toStringComplet());
+					selectedApprenant.addAll(app.getContacts());
+				}
+				if (selApp instanceof Alternant) {
+					Alternant app = (Alternant) selApp;
+					selectedApprenant.add(app.toStringComplet());
+					selectedApprenant.addAll(app.getContacts());
+				}
+				//selectedApprenant.add(selApp.toStringComplet());
+				spot = generalJList.getSelectedIndex();
+				
+				detailedList.setListData(selectedApprenant.toArray());
+			}
+		});
+		panelS.setLayout(new BorderLayout(0, 0));
+		panelS.add(afficherApprenant, BorderLayout.EAST);
+		
+		detailedList = new JList();
+		panelS.add(detailedList, BorderLayout.SOUTH);
+		
+		JPanel panelSC = new JPanel();
+		panelS.add(panelSC, BorderLayout.CENTER);
+		
+		textField = new JTextField();
+		panelSC.add(textField);
+		textField.setColumns(10);
+		
+		JButton retardButton = new JButton("Ajout Retard");
+		retardButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setRetards(Integer.valueOf(textField.getText()));
+				
+			}
+		});
+		panelSC.add(retardButton);
+		
+		JButton absenceButton = new JButton("Ajout Absence");
+		absenceButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setAbsences(Integer.valueOf(textField.getText()));
+				
+			}
+		});
+		panelSC.add(absenceButton);
+		
 		JPanel panelW = new JPanel();
 		contentPane.add(panelW, BorderLayout.WEST);
 
 		JPanel panelC = new JPanel();
 		contentPane.add(panelC, BorderLayout.CENTER);
-
+		panelC.setLayout(new BorderLayout(0, 0));
 		JPanel panelE = new JPanel();
 		contentPane.add(panelE, BorderLayout.EAST);
 	}
 
-	public Promo genererPromo() {
-		ArrayList<String> contact = new ArrayList<String>();
-		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
-		
-		list.add(new Alternant("java", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
-		list.add(new Alternant("jones", "boby", 2022, 03, 01, contact, "domédia", 0, 0, "java", "1800"));
-		list.add(new Alternant("bertrand", "rene", 2022, 05, 01, contact, "lava", 0, 0, "java", "1500"));
-		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
-		list.add(new Alternant("petit", "dilan", 2022, 03, 01, contact, "eureka", 0, 0, "java", "1977"));
-
-		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "stardust",0,0, "java","are", 1010));
-		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "tesla", 0, 0, "java","aref", 1101));
-		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "air-France", 0, 0, "java","are", 1200));
-		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "sentinel", 0, 0, "java", "are", 1300));
-		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "lexmark", 0, 0, "java", "aref", 1360));
-		Promo promo = new Promo(list, "Java", 2022, 05, 02, 120);
-		return promo;
-	}
-	public Promo genererPromo2() {
-		ArrayList<String> contact = new ArrayList<String>();
-		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
-		
-		list.add(new Alternant("Mathews", "john", 2022, 04, 01, contact, "badam", 0, 0, "php", "2500"));
-		list.add(new Alternant("robert", "bertrand", 2022, 03, 01, contact, "derby", 0, 0, "php", "1800"));
-		list.add(new Alternant("chino", "sun", 2022, 05, 01, contact, "lenovo", 0, 0, "php", "1500"));
-		list.add(new Alternant("baccardi", "ruiz", 2022, 04, 01, contact, "asus", 0, 0, "php", "1650"));
-		list.add(new Alternant("musk", "elona", 2022, 03, 01, contact, "msi", 0, 0, "php", "1977"));
-
-		list.add(new Stagiaire("kane", "youri", 2022, 04, 01, contact, "hp",0,0, "php","are", 1010));
-		list.add(new Stagiaire("neron", "baptiste", 2022, 07, 01, contact, "apple", 0, 0, "php","aref", 1101));
-		list.add(new Stagiaire("sismondi", "julius", 2022, 05, 01, contact, "microsoft", 0, 0, "php","are", 1200));
-		list.add(new Stagiaire("albon", "albius", 2022, 04, 01, contact, "razer", 0, 0, "php", "are", 1300));
-		list.add(new Stagiaire("chlass", "dominic", 2022, 04, 01, contact, "cci", 0, 0, "php", "aref", 1360));
-		Promo promo = new Promo(list, "PHP", 2022, 05, 02, 120);
-		return promo;
-	}
 
 }
+

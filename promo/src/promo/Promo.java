@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Promo {
 	private ArrayList<Apprenant> eleve = new ArrayList<Apprenant>();
 	
-	private String nomPromo;
+	protected String nomPromo;
 	private LocalDate dateDebut;
 	private Integer duree;
 	
