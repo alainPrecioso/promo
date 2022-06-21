@@ -97,10 +97,10 @@ public abstract class Apprenant {
 		
 		return absencesString;
 	}
-	public void setAsbsences(int asbsences) {
-		this.absences = asbsences;
+	public void setAbsences(int absences) {
+		this.absences = absences;
 	}
-	public void addAsbsences(int asbsences) {
+	public void addAbsences(int asbsences) {
 		this.absences += asbsences;
 	}
 	public String getPromo() {
@@ -121,9 +121,6 @@ public abstract class Apprenant {
 	}
 
 
-	public void setAbsences(int absences) {
-		this.absences = absences;
-	}
 	
 	
 	@Override
