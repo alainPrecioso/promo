@@ -80,6 +80,10 @@ public abstract class Apprenant {
 		this.retards = retards;
 	}
 	
+	public void addRetards(int retards) {
+		this.retards += retards;
+	}
+	
 	public int getAbsences() {
 		return absences;
 	}
@@ -95,6 +99,9 @@ public abstract class Apprenant {
 	}
 	public void setAsbsences(int asbsences) {
 		this.absences = asbsences;
+	}
+	public void addAsbsences(int asbsences) {
+		this.absences += asbsences;
 	}
 	public String getPromo() {
 		return promo;

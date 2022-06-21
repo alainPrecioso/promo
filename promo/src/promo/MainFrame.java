@@ -100,7 +100,7 @@ public class MainFrame extends JFrame {
 		JButton retardButton = new JButton("Ajout Retard");
 		retardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setRetards(Integer.valueOf(textField.getText()));
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addRetards(Integer.valueOf(textField.getText()));
 				printApprenant(generalJList);
 			}
 		});
@@ -109,7 +109,7 @@ public class MainFrame extends JFrame {
 		JButton absenceButton = new JButton("Ajout Absence");
 		absenceButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setAbsences(Integer.valueOf(textField.getText()));
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addAsbsences(Integer.valueOf(textField.getText()));
 				printApprenant(generalJList);
 			}
 		});
