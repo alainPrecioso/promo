@@ -16,15 +16,16 @@ public class Alternant extends Apprenant{
 	}
 	@Override
 	public String toString() {
-		return "Alternant :\nSalaire -> " + salaire + "\t || Nom: \t" + nom + " ||\t Prenom: \t" + prenom + " ||\t Date inscription: \t" + dateInscri
-				+ "\t || Promo: \t" + promo;
+		return "Alternant --> "
+				+ " || Nom: " +nom+ " || Prenom: " +prenom+ " || Date inscription: " + dateInscri
+				+ " || Promo: " +promo+ " || Salaire -> " + salaire;
 	}
 	
 	@Override
 	public String toStringComplet() {
-		return "Alternant [salaire=" + salaire + ", nom=" + nom + ", prenom=" + prenom + ", dateInscri=" + dateInscri
-				+ ", contacts=" + contacts + ", nomEntreprise=" + nomEntreprise + ", retards=" + retards + ", absences="
-				+ absences + ", promo=" + promo + ", alertAbscences=" + alertAbscences + "]";
+		return "Alternant --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri
+				+ " || Promo: " +promo+ " || Salaire -> " +salaire + " || Entreprise: "+nomEntreprise+ " || Contacts: " +contacts+ " ||||  Retards: " +retards+ " || Absences : "
+				+absences+ " || Alert Abscences: " +alertAbscences;
 	}
 	
 

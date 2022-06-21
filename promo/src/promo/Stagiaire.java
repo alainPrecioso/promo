@@ -18,20 +18,23 @@ public class Stagiaire extends Apprenant {
 		this.typAllo = typAllo;
 		this.allocation = allocation;
 }
-
-
 	@Override
 	public String toString() {
-		return "Stagiaire :\nType d'allocation -> " + typAllo + " --- Allocation -> " + allocation + " --- Nom -> " + nom + " --- Prenom -> " + prenom
+		return "Stagiaire --> Type d'allocation -> " + typAllo + " --- Allocation -> " + allocation + " --- Nom -> " + nom + " --- Prenom -> " + prenom
 				+ " --- Date inscription ->" + dateInscri + " --- Contacts -> " + contacts + "Promo -> " + promo;
 	}
+
 	@Override
 	public String toStringComplet() {
-		return "Stagiaire [typAllo=" + typAllo + ", allocation=" + allocation + ", nom=" + nom + ", prenom=" + prenom
-				+ ", dateInscri=" + dateInscri + ", contacts=" + contacts + ", nomEntreprise=" + nomEntreprise
-				+ ", retards=" + retards + ", absences=" + absences + ", promo=" + promo + ", alertAbscences="
-				+ alertAbscences + "]";
+		return "Stagiaire --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri+
+				" || Promo: " +promo+ " || Type Allocation: " +typAllo+ " || Allocation: " +allocation+ 
+			    " || Entreprise: " +nomEntreprise+ " || Contacts: " +contacts+
+				"||||  Retards: " +retards+ " || Absences : "+absences;
 	}
+
+
+	
+	
 
 	
 

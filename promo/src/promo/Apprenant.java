@@ -127,10 +127,10 @@ public abstract class Apprenant {
 	public String toStringComplet() {
 		
 		// TODO Auto-generated method stub
-		return "Stagiaire [typAllo=" + typAllo + ", allocation=" + allocation + ", nom=" + nom + ", prenom=" + prenom
-				+ ", dateInscri=" + dateInscri + ", contacts=" + contacts + ", nomEntreprise=" + nomEntreprise
-				+ ", retards=" + retards + ", absences=" + absences + ", promo=" + promo + ", alertAbscences="
-				+ alertAbscences + "]";
+		return "Stagiaire --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri+
+				" || Promo: " +promo+ " || Type Allocation: " +typAllo+ " || Allocation: " +allocation+ 
+			    " || Entreprise: " +nomEntreprise+ " || Contacts: " +contacts+
+				"||||  Retards: " +retards+ " || Absences : "+" || Contacts: " + contacts ;
 	}
 	
 }
