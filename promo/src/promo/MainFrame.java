@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import utils.Ser;
+
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -17,7 +20,7 @@ public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
 	JComboBox comboBox;
-	ArrayList<Promo> promos = new ArrayList<Promo>();
+	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
 	JList detailedList;
 
 	/**
@@ -56,8 +59,8 @@ public class MainFrame extends JFrame {
 		
 		
 		
-		promos.add(genererPromo());
-		promos.add(genererPromo2());
+		//promos.add(genererPromo());
+		//promos.add(genererPromo2());
 		comboBox = new JComboBox(promos.toArray());
 		panelN.add(comboBox, BorderLayout.NORTH);
 		
@@ -79,6 +82,7 @@ public class MainFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<Object> list = new ArrayList<Object>();
 				list.add(generalJList.getSelectedValuesList().get(0));
+				Integer spot = generalJList.getSelectedIndex();
 				detailedList.setListData(list.toArray());
 			}
 		});
@@ -108,11 +112,11 @@ public class MainFrame extends JFrame {
 		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
 		list.add(new Alternant("petit", "dilan", 2022, 03, 01, contact, "eureka", 0, 0, "java", "1977"));
 
-		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", 1010));
-		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", 1101));
-		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", 1200));
-		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", 1300));
-		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", 1360));
+		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", "1010"));
+		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", "1101"));
+		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", "1200"));
+		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", "1300"));
+		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", "1360"));
 		Promo promo = new Promo(list, "Java", 2022, 05, 02, 120);
 		return promo;
 	}
@@ -125,11 +129,11 @@ public class MainFrame extends JFrame {
 		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
 		list.add(new Alternant("petit", "dilan", 2022, 03, 01, contact, "eureka", 0, 0, "java", "1977"));
 
-		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", 1010));
-		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", 1101));
-		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", 1200));
-		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", 1300));
-		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", 1360));
+		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", "1010"));
+		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", "1101"));
+		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", "1200"));
+		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", "1300"));
+		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", "1360"));
 		Promo promo = new Promo(list, "PHP", 2022, 05, 02, 120);
 		return promo;
 	}
