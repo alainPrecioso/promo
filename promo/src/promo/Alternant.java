@@ -10,16 +10,19 @@ public class Alternant extends Apprenant{
 	}
 
 	public Alternant(String nom, String prenom, Integer annee, Integer mois, Integer jour, ArrayList<String> contacts,
-			String nomEntreprise, int retards, int asbsences, String promo) {
+			String nomEntreprise, int retards, int asbsences, String promo, String salaire ) {
 		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, asbsences, promo);
-		// TODO Auto-generated constructor stub
+	this.salaire = salaire;
 	}
-
-
 
 	@Override
 	public String toString() {
-		return "Alternant [Salaire=" + salaire + "]";
+		return "Alternant :\nsalaire -> " + salaire + " --- Nom -> " + nom + " --- Prenom -> " + prenom + " --- Date inscription : " + dateInscri
+				+ " --- Promo : " + promo;
 	}
+	
 
+
+
+	
 }
