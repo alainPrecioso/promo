@@ -15,6 +15,7 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class MainFrame extends JFrame {
 
@@ -22,6 +23,8 @@ public class MainFrame extends JFrame {
 	JComboBox comboBox;
 	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
 	JList detailedList;
+	private JTextField textField;
+	Integer spot;
 
 	/**
 	 * Launch the application.
@@ -78,10 +81,7 @@ public class MainFrame extends JFrame {
 		JButton afficherApprenant = new JButton("Infos complètes");
 		afficherApprenant.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ArrayList<Object> list = new ArrayList<Object>();
-				list.add(generalJList.getSelectedValuesList().get(0));
-				Integer spot = generalJList.getSelectedIndex();
-				detailedList.setListData(list.toArray());
+				printApprenant(generalJList);
 			}
 		});
 		panelS.setLayout(new BorderLayout(0, 0));
@@ -89,6 +89,31 @@ public class MainFrame extends JFrame {
 		
 		detailedList = new JList();
 		panelS.add(detailedList, BorderLayout.SOUTH);
+		
+		JPanel panelSC = new JPanel();
+		panelS.add(panelSC, BorderLayout.CENTER);
+		
+		textField = new JTextField();
+		panelSC.add(textField);
+		textField.setColumns(10);
+		
+		JButton retardButton = new JButton("Ajout Retard");
+		retardButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setRetards(Integer.valueOf(textField.getText()));
+				printApprenant(generalJList);
+			}
+		});
+		panelSC.add(retardButton);
+		
+		JButton absenceButton = new JButton("Ajout Absence");
+		absenceButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).setAbsences(Integer.valueOf(textField.getText()));
+				printApprenant(generalJList);
+			}
+		});
+		panelSC.add(absenceButton);
 		
 		JPanel panelW = new JPanel();
 		contentPane.add(panelW, BorderLayout.WEST);
@@ -100,5 +125,24 @@ public class MainFrame extends JFrame {
 		contentPane.add(panelE, BorderLayout.EAST);
 	}
 
+	
+	public void printApprenant(JList generalJList) {
+		ArrayList<String> selectedApprenant = new ArrayList<String>();
+		Object selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0);
+		if (selApp instanceof Stagiaire) {
+			Stagiaire app = (Stagiaire) selApp;
+			selectedApprenant.add(app.toStringComplet());
+			selectedApprenant.addAll(app.getContacts());
+		}
+		if (selApp instanceof Alternant) {
+			Alternant app = (Alternant) selApp;
+			selectedApprenant.add(app.toStringComplet());
+			selectedApprenant.addAll(app.getContacts());
+		}
+		//selectedApprenant.add(selApp.toStringComplet());
+		spot = generalJList.getSelectedIndex();
+		
+		detailedList.setListData(selectedApprenant.toArray());
+	}
 
 }
