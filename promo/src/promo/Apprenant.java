@@ -13,6 +13,8 @@ public abstract class Apprenant {
 	protected int absences; //jours
 	protected String promo;
 	protected boolean alertAbscences;
+	protected String allocation;
+	protected String typAllo;
 	
 	public Apprenant() {
 		
@@ -30,16 +32,7 @@ public abstract class Apprenant {
 		this.retards = retards;
 		this.absences = absences;
 		this.promo = promo;
-	}
-
-
-
-
-
-
-	@Override
-	public String toString() {
-		return "Apprenant [nom=" + nom + ", prenom=" + prenom + ", dateInscri=" + dateInscri + ", promo=" + promo + "]";
+		this.allocation = allocation;
 	}
 
 
@@ -126,6 +119,18 @@ public abstract class Apprenant {
 	}
 	
 	
-
-
+	@Override
+	public String toString() {
+		return "Apprenant [nom=" + nom + ", prenom=" + prenom + ", dateInscri=" + dateInscri + ", promo=" + promo + "]";
+	}
+	
+	public String toStringComplet() {
+		
+		// TODO Auto-generated method stub
+		return "Stagiaire [typAllo=" + typAllo + ", allocation=" + allocation + ", nom=" + nom + ", prenom=" + prenom
+				+ ", dateInscri=" + dateInscri + ", contacts=" + contacts + ", nomEntreprise=" + nomEntreprise
+				+ ", retards=" + retards + ", absences=" + absences + ", promo=" + promo + ", alertAbscences="
+				+ alertAbscences + "]";
+	}
+	
 }

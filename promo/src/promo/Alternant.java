@@ -14,11 +14,17 @@ public class Alternant extends Apprenant{
 		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, asbsences, promo);
 	this.salaire = salaire;
 	}
-
 	@Override
 	public String toString() {
-		return "Alternant :\nsalaire -> " + salaire + " --- Nom -> " + nom + " --- Prenom -> " + prenom + " --- Date inscription : " + dateInscri
-				+ " --- Promo : " + promo;
+		return "Alternant :\nSalaire -> " + salaire + "\t || Nom: \t" + nom + " ||\t Prenom: \t" + prenom + " ||\t Date inscription: \t" + dateInscri
+				+ "\t || Promo: \t" + promo;
+	}
+	
+	@Override
+	public String toStringComplet() {
+		return "Alternant [salaire=" + salaire + ", nom=" + nom + ", prenom=" + prenom + ", dateInscri=" + dateInscri
+				+ ", contacts=" + contacts + ", nomEntreprise=" + nomEntreprise + ", retards=" + retards + ", absences="
+				+ absences + ", promo=" + promo + ", alertAbscences=" + alertAbscences + "]";
 	}
 	
 

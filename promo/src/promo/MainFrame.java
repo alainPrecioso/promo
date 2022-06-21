@@ -86,34 +86,36 @@ public class MainFrame extends JFrame {
 	public Promo genererPromo() {
 		ArrayList<String> contact = new ArrayList<String>();
 		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
+		
 		list.add(new Alternant("java", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
 		list.add(new Alternant("jones", "boby", 2022, 03, 01, contact, "domédia", 0, 0, "java", "1800"));
 		list.add(new Alternant("bertrand", "rene", 2022, 05, 01, contact, "lava", 0, 0, "java", "1500"));
 		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
 		list.add(new Alternant("petit", "dilan", 2022, 03, 01, contact, "eureka", 0, 0, "java", "1977"));
 
-		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", 1010));
-		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", 1101));
-		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", 1200));
-		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", 1300));
-		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", 1360));
+		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "stardust",0,0, "java","are", 1010));
+		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "tesla", 0, 0, "java","aref", 1101));
+		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "air-France", 0, 0, "java","are", 1200));
+		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "sentinel", 0, 0, "java", "are", 1300));
+		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "lexmark", 0, 0, "java", "aref", 1360));
 		Promo promo = new Promo(list, "Java", 2022, 05, 02, 120);
 		return promo;
 	}
 	public Promo genererPromo2() {
 		ArrayList<String> contact = new ArrayList<String>();
 		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
-		list.add(new Alternant("php", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
-		list.add(new Alternant("jones", "boby", 2022, 03, 01, contact, "domédia", 0, 0, "java", "1800"));
-		list.add(new Alternant("bertrand", "rene", 2022, 05, 01, contact, "lava", 0, 0, "java", "1500"));
-		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
-		list.add(new Alternant("petit", "dilan", 2022, 03, 01, contact, "eureka", 0, 0, "java", "1977"));
+		
+		list.add(new Alternant("Mathews", "john", 2022, 04, 01, contact, "badam", 0, 0, "php", "2500"));
+		list.add(new Alternant("robert", "bertrand", 2022, 03, 01, contact, "derby", 0, 0, "php", "1800"));
+		list.add(new Alternant("chino", "sun", 2022, 05, 01, contact, "lenovo", 0, 0, "php", "1500"));
+		list.add(new Alternant("baccardi", "ruiz", 2022, 04, 01, contact, "asus", 0, 0, "php", "1650"));
+		list.add(new Alternant("musk", "elona", 2022, 03, 01, contact, "msi", 0, 0, "php", "1977"));
 
-		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", 1010));
-		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", 1101));
-		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", 1200));
-		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", 1300));
-		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", 1360));
+		list.add(new Stagiaire("kane", "youri", 2022, 04, 01, contact, "hp",0,0, "php","are", 1010));
+		list.add(new Stagiaire("neron", "baptiste", 2022, 07, 01, contact, "apple", 0, 0, "php","aref", 1101));
+		list.add(new Stagiaire("sismondi", "julius", 2022, 05, 01, contact, "microsoft", 0, 0, "php","are", 1200));
+		list.add(new Stagiaire("albon", "albius", 2022, 04, 01, contact, "razer", 0, 0, "php", "are", 1300));
+		list.add(new Stagiaire("chlass", "dominic", 2022, 04, 01, contact, "cci", 0, 0, "php", "aref", 1360));
 		Promo promo = new Promo(list, "PHP", 2022, 05, 02, 120);
 		return promo;
 	}
