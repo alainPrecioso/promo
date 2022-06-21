@@ -19,6 +19,27 @@ public class Stagiaire extends Apprenant {
 		this.typAllo = typAllo;
 		this.allocation = allocation;
 }
+	
+	public String getTypAllo() {
+		return typAllo;
+	}
+
+
+	public void setTypAllo(String typAllo) {
+		this.typAllo = typAllo;
+	}
+
+
+	public String getAllocation() {
+		return allocation;
+	}
+
+
+	public void setAllocation(String allocation) {
+		this.allocation = allocation;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Stagiaire --> "
@@ -28,16 +49,10 @@ public class Stagiaire extends Apprenant {
 
 	@Override
 	public String toStringComplet() {
-		return "Stagiaire --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri+
-				" || Promo: " +promo+ " || Type Allocation: " +typAllo+ " || Allocation: " +allocation+ 
-			    " || Entreprise: " +nomEntreprise+ " || Contacts: " +contacts+
-				"||||  Retards: " +retards+ " || Absences : "+absences;
+			return  "" +nom+ ", " +prenom+ ", " +dateInscri+
+					", " +promo+ ", " +typAllo+ ", " +allocation+ 
+				    ", " +nomEntreprise+ ", "
+					+retards+ ", "+absences;
+		}
+
 	}
-
-
-	
-	
-
-	
-
-}

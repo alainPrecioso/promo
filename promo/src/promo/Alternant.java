@@ -13,7 +13,17 @@ public class Alternant extends Apprenant{
 			String nomEntreprise, int retards, int asbsences, String promo, String salaire ) {
 		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, asbsences, promo);
 	this.salaire = salaire;
+	
 	}
+	
+	public String getSalaire() {
+		return salaire;
+	}
+
+	public void setSalaire(String salaire) {
+		this.salaire = salaire;
+	}
+
 	@Override
 	public String toString() {
 		return "Alternant --> "
@@ -23,9 +33,9 @@ public class Alternant extends Apprenant{
 	
 	@Override
 	public String toStringComplet() {
-		return "Alternant --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri
-				+ " || Promo: " +promo+ " || Salaire -> " +salaire + " || Entreprise: "+nomEntreprise+ " || Contacts: " +contacts+ " ||||  Retards: " +retards+ " || Absences : "
-				+absences+ " || Alert Abscences: " +alertAbscences;
+		return ""+nom+", "+prenom+", "+dateInscri+", "
+				 +promo+", "+salaire+", "+nomEntreprise+", "
+				 +retards+", "+absences+", "+ alertAbscences;
 	}
 	
 
