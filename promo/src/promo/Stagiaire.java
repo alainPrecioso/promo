@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Stagiaire extends Apprenant {
 	
 	protected String typAllo;
-	protected Double allocation;
+	protected String allocation;
 
 	public Stagiaire() {
 		
@@ -13,7 +13,8 @@ public class Stagiaire extends Apprenant {
 
 
 	protected Stagiaire(String nom, String prenom, Integer annee, Integer mois, Integer jour,
-			ArrayList<String> contacts, String nomEntreprise, int retards, int absences, String promo, String typAllo, double allocation) {
+			ArrayList<String> contacts, String nomEntreprise, int retards, int absences, String promo, String typAllo, String allocation) {
+		
 		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise, retards, absences, promo);
 		this.typAllo = typAllo;
 		this.allocation = allocation;

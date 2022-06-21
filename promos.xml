@@ -1,0 +1,1079 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.3.1" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="promo.Promo" id="Promo0">
+    <void property="dateDebut">
+     <object class="java.time.LocalDate" method="parse">
+      <string>2022-05-02</string>
+     </object>
+    </void>
+    <void property="duree">
+     <int>120</int>
+    </void>
+    <void property="eleve">
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Eden Nathalia: 02412138</string>
+         </void>
+         <void method="add">
+          <string>Makhi Avery: 01620746</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-05-19</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Samara</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Clorox</string>
+       </void>
+       <void property="prenom">
+        <string>Kaiya</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Prince Roman: 04567878</string>
+         </void>
+         <void method="add">
+          <string>Donovan Kash: 04505830</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-01-19</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Keyon</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Calpine</string>
+       </void>
+       <void property="prenom">
+        <string>Fabian</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Dennis Elliot: 02078547</string>
+         </void>
+         <void method="add">
+          <string>Bryan Madeline: 03414723</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-07-16</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Layla</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Western Union</string>
+       </void>
+       <void property="prenom">
+        <string>Mia</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Hector Maximus: 06610045</string>
+         </void>
+         <void method="add">
+          <string>Marisa Marisol: 04142141</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-08-03</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Jacob</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Molson Coors Brewing</string>
+       </void>
+       <void property="prenom">
+        <string>Lexie</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Mira Maren: 04755258</string>
+         </void>
+         <void method="add">
+          <string>Hassan Addison: 01643101</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-06-01</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Gunner</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Northrop Grumman</string>
+       </void>
+       <void property="prenom">
+        <string>Cecilia</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Prince Zayne: 01744283</string>
+         </void>
+         <void method="add">
+          <string>Kiley Julissa: 02767662</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-04-23</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Lailah</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Alcoa</string>
+       </void>
+       <void property="prenom">
+        <string>Carolyn</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Emilee Kaylah: 01823525</string>
+         </void>
+         <void method="add">
+          <string>Theodore Maria: 02614212</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-05-07</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Ellie</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>American Airlines Group</string>
+       </void>
+       <void property="prenom">
+        <string>Philip</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Makhi Julius: 04552005</string>
+         </void>
+         <void method="add">
+          <string>Gracie Ulises: 01525158</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-03-03</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Keegan</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>NVR</string>
+       </void>
+       <void property="prenom">
+        <string>Amanda</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Callie Darwin: 02142588</string>
+         </void>
+         <void method="add">
+          <string>Piper Aidan: 01005376</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-04-24</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Ryder</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Olin</string>
+       </void>
+       <void property="prenom">
+        <string>Connor</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Bo Karlie: 03425655</string>
+         </void>
+         <void method="add">
+          <string>Camille Marc: 01257632</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-05-23</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Jayson</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Danaher</string>
+       </void>
+       <void property="prenom">
+        <string>Arturo</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Albert Davis: 01070764</string>
+         </void>
+         <void method="add">
+          <string>Kaia Marlon: 04732247</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-08-18</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Brogan</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Verizon Communications</string>
+       </void>
+       <void property="prenom">
+        <string>Christian</string>
+       </void>
+       <void property="promo">
+        <string>Java 4</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="nomPromo">
+     <string>Java 4</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="promo.Promo" id="Promo1">
+    <void property="dateDebut">
+     <object class="java.time.LocalDate" method="parse">
+      <string>2022-05-02</string>
+     </object>
+    </void>
+    <void property="duree">
+     <int>120</int>
+    </void>
+    <void property="eleve">
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Frida Kate: 02810348</string>
+         </void>
+         <void method="add">
+          <string>Lewis Harmony: 06362204</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-07-10</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Leland</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Occidental Petroleum</string>
+       </void>
+       <void property="prenom">
+        <string>Kiera</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Anderson Aliza: 01284206</string>
+         </void>
+         <void method="add">
+          <string>Quinton Marlon: 06884151</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-11-12</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Gauge</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>McDonald&apos;s</string>
+       </void>
+       <void property="prenom">
+        <string>Jadyn</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Precious Kailey: 05587516</string>
+         </void>
+         <void method="add">
+          <string>Kate Coby: 06811527</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-08-19</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Rolando</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Franklin Resources</string>
+       </void>
+       <void property="prenom">
+        <string>Victoria</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Rhianna Carmelo: 02876011</string>
+         </void>
+         <void method="add">
+          <string>River Hugo: 06483222</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-05-17</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Emily</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Builders FirstSource</string>
+       </void>
+       <void property="prenom">
+        <string>Denzel</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Lena Adalynn: 02837562</string>
+         </void>
+         <void method="add">
+          <string>Guillermo Marc: 06276305</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-11-03</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Esmeralda</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>FedEx</string>
+       </void>
+       <void property="prenom">
+        <string>Rebecca</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Aaron Ashlee: 02822031</string>
+         </void>
+         <void method="add">
+          <string>Jaslyn Rishi: 02321455</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-03-07</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Maggie</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>AT&amp;T</string>
+       </void>
+       <void property="prenom">
+        <string>Norah</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Rhys Toby: 04572370</string>
+         </void>
+         <void method="add">
+          <string>Marina Titus: 06464882</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-05-25</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Ashley</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Bank of New York Mellon</string>
+       </void>
+       <void property="prenom">
+        <string>Logan</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Karly Madeleine: 01365735</string>
+         </void>
+         <void method="add">
+          <string>Kash Lauren: 04530533</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-02-03</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Ulises</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Arthur J. Gallagher</string>
+       </void>
+       <void property="prenom">
+        <string>Jeramiah</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Hassan Aleena: 06473056</string>
+         </void>
+         <void method="add">
+          <string>Grace Phoenix: 05887254</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-10-26</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Britney</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Publix Super Markets</string>
+       </void>
+       <void property="prenom">
+        <string>Meadow</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Zayden Zack: 04450753</string>
+         </void>
+         <void method="add">
+          <string>Aden Paloma: 03333521</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-11-01</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Antony</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>DISH Network</string>
+       </void>
+       <void property="prenom">
+        <string>Samir</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Kaya Andre: 06100115</string>
+         </void>
+         <void method="add">
+          <string>Cannon Simeon: 05710110</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-02-21</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Jorge</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>American Airlines Group</string>
+       </void>
+       <void property="prenom">
+        <string>Catherine</string>
+       </void>
+       <void property="promo">
+        <string>Php 4</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="nomPromo">
+     <string>Php 4</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="promo.Promo" id="Promo2">
+    <void property="dateDebut">
+     <object class="java.time.LocalDate" method="parse">
+      <string>2022-05-02</string>
+     </object>
+    </void>
+    <void property="duree">
+     <int>120</int>
+    </void>
+    <void property="eleve">
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Shannon Dustin: 01830778</string>
+         </void>
+         <void method="add">
+          <string>Rowan Barbara: 02122183</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-09-01</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Landon</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Lithia Motors</string>
+       </void>
+       <void property="prenom">
+        <string>Audrina</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Jonah Anna: 01526303</string>
+         </void>
+         <void method="add">
+          <string>Kaley Averi: 05588325</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-04-26</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Leyla</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Duke Energy</string>
+       </void>
+       <void property="prenom">
+        <string>Gilberto</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Ean Davian: 05723323</string>
+         </void>
+         <void method="add">
+          <string>Ace Davion: 03655367</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-03-25</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Cortez</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>DISH Network</string>
+       </void>
+       <void property="prenom">
+        <string>Raegan</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Aden Estrella: 02656660</string>
+         </void>
+         <void method="add">
+          <string>Calvin Lennon: 03603003</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-07-02</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Marcel</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Las Vegas Sands</string>
+       </void>
+       <void property="prenom">
+        <string>Taliyah</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Kamden Isiah: 01073717</string>
+         </void>
+         <void method="add">
+          <string>Cindy Roberto: 03434678</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-01-07</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Adriel</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Adobe</string>
+       </void>
+       <void property="prenom">
+        <string>Kassandra</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Allisson Demetrius: 01032106</string>
+         </void>
+         <void method="add">
+          <string>Marques Porter: 03642485</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-10-05</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Mylee</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Insight Enterprises</string>
+       </void>
+       <void property="prenom">
+        <string>Olivia</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Porter Mya: 01234567</string>
+         </void>
+         <void method="add">
+          <string>Alondra Hector: 02383516</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-06-14</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Alejandro</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Mutual of Omaha Insurance</string>
+       </void>
+       <void property="prenom">
+        <string>Lizbeth</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Johanna Ana: 01042226</string>
+         </void>
+         <void method="add">
+          <string>Garrett Pablo: 05225651</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-05-06</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Amare</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>American Airlines Group</string>
+       </void>
+       <void property="prenom">
+        <string>Nicholas</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Isai Destiny: 02174228</string>
+         </void>
+         <void method="add">
+          <string>Kiersten Karlee: 04705886</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-08-26</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Sage</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>NCR</string>
+       </void>
+       <void property="prenom">
+        <string>Selah</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Aleena Anderson: 04786703</string>
+         </void>
+         <void method="add">
+          <string>Ernesto Alexis: 06478044</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-02-22</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Georgia</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Dana</string>
+       </void>
+       <void property="prenom">
+        <string>Ashtyn</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Alternant">
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Ingrid Chandler: 02372572</string>
+         </void>
+         <void method="add">
+          <string>Jadyn Bronson: 02470487</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2021-03-13</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Alex</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Verizon Communications</string>
+       </void>
+       <void property="prenom">
+        <string>Xiomara</string>
+       </void>
+       <void property="promo">
+        <string>Java 3</string>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void property="nomPromo">
+     <string>Java 3</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
