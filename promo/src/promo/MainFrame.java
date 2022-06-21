@@ -18,6 +18,7 @@ public class MainFrame extends JFrame {
 	private JPanel contentPane;
 	JComboBox comboBox;
 	ArrayList<Promo> promos = new ArrayList<Promo>();
+	JList detailedList;
 
 	/**
 	 * Launch the application.
@@ -73,11 +74,26 @@ public class MainFrame extends JFrame {
 		JPanel panelS = new JPanel();
 		contentPane.add(panelS, BorderLayout.SOUTH);
 		
+		JButton afficherApprenant = new JButton("Infos complètes");
+		afficherApprenant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ArrayList<Object> list = new ArrayList<Object>();
+				list.add(generalJList.getSelectedValuesList().get(0));
+				detailedList.setListData(list.toArray());
+			}
+		});
+		panelS.setLayout(new BorderLayout(0, 0));
+		panelS.add(afficherApprenant, BorderLayout.EAST);
+		
+		detailedList = new JList();
+		panelS.add(detailedList, BorderLayout.SOUTH);
+		
 		JPanel panelW = new JPanel();
 		contentPane.add(panelW, BorderLayout.WEST);
 		
 		JPanel panelC = new JPanel();
 		contentPane.add(panelC, BorderLayout.CENTER);
+		panelC.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panelE = new JPanel();
 		contentPane.add(panelE, BorderLayout.EAST);
