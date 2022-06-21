@@ -5,32 +5,67 @@ import java.util.ArrayList;
 
 public class Promo {
 	private ArrayList<Apprenant> eleve = new ArrayList<Apprenant>();
-	
+	// Instance two variables of types String
 	private String nomPromo;
 	private LocalDate dateDebut;
-	private Integer duree;
+
 	
 	
+<<<<<<< HEAD
+	// generate ArrayList
+	public Promo(ArrayList<Apprenant> eleve, String nomPromo, LocalDate dateDebut) {
+		super();
+=======
 	
 	
 	public Promo(ArrayList<Apprenant> eleve, String nomPromo, Integer annee, Integer mois, Integer jour, Integer duree) {
+>>>>>>> refs/heads/develop
 		this.eleve = eleve;
 		this.nomPromo = nomPromo;
+<<<<<<< HEAD
+		this.dateDebut = dateDebut;
+=======
 		this.dateDebut = LocalDate.of(annee, mois, jour);
 		this.duree = duree;
+>>>>>>> refs/heads/develop
 	}
-	
+	//Generate getters and setters
+	public ArrayList<Apprenant> getEleve() {
+		return eleve;
+	}
+
+	public void setEleve(ArrayList<Apprenant> eleve) {
+		this.eleve = eleve;
+	}
+
+	public String getNomPromo() {
+		return nomPromo;
+	}
+
+	public void setNomPromo(String nomPromo) {
+		this.nomPromo = nomPromo;
+	}
+
+	public LocalDate getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(LocalDate dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
 	public Promo() {
 		// TODO Auto-generated constructor stub
 	
 	}
-	public Integer getDuree() {
-		return duree;
-	}
-	public void setDuree(Integer duree) {
-		this.duree = duree;
+// Generate methode toString
+	@Override
+	public String toString() {
+		return "Promo [eleve=" + eleve + ", nomPromo=" + nomPromo + ", dateDebut=" + dateDebut + "]";
 	}
 	
+<<<<<<< HEAD
+=======
 	public void abscenceCheck() {
 		for (Apprenant apprenant : eleve) {
 			if (apprenant.getAbsences() > (double)( duree * 0.1 )) {
@@ -70,6 +105,7 @@ public class Promo {
 	}
 	
 	
+>>>>>>> refs/heads/develop
 	
+	}
 
-}
