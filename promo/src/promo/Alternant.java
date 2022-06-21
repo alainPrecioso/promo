@@ -26,16 +26,21 @@ public class Alternant extends Apprenant{
 
 	@Override
 	public String toString() {
-		return "Alternant --> "
+		String str = "Alternant --> "
 				+ " || Nom: " +nom+ " || Prenom: " +prenom+ " || Date inscription: " + dateInscri
 				+ " || Promo: " +promo+ " || Salaire -> " + salaire;
+		
+		if (retards >= 30) {
+			str += " ALERTE RETARDS";
+		}
+		return str;
 	}
 	
 	@Override
 	public String toStringComplet() {
 		return ""+nom+", "+prenom+", "+dateInscri+", "
 				 +promo+", "+salaire+", "+nomEntreprise+", "
-				 +retards+", "+absences+", "+ alertAbscences;
+				 +retards+", "+getAbsencesAlerte();
 	}
 	
 

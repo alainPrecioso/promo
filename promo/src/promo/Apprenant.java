@@ -92,7 +92,7 @@ public abstract class Apprenant {
 		String absencesString = Integer.toString(absences) + " jours.";
 		
 		if (alertAbscences == true) {
-			absencesString += " Alerte abscences";
+			absencesString += " Alerte absences";
 		}
 		
 		return absencesString;
@@ -134,7 +134,7 @@ public abstract class Apprenant {
 		return  "" +nom+ ", " +prenom+ ", " +dateInscri+
 				", " +promo+ ", " +typAllo+ ", " +allocation+ 
 			    ", " +nomEntreprise+ ", " +contacts+
-				", " +retards+ ", " +absences;
+				", " +retards+ ", " + getAbsencesAlerte();
 	}
 	
 }

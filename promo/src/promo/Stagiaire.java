@@ -49,10 +49,14 @@ public class Stagiaire extends Apprenant {
 
 	@Override
 	public String toStringComplet() {
-			return  "" +nom+ ", " +prenom+ ", " +dateInscri+
-					", " +promo+ ", " +typAllo+ ", " +allocation+ 
-				    ", " +nomEntreprise+ ", "
-					+retards+ ", "+absences;
+		String str = "" +nom+ ", " +prenom+ ", " +dateInscri+
+				", " +promo+ ", " +typAllo+ ", " +allocation+ 
+			    ", " +nomEntreprise+ ", "
+				+retards+ ", "+getAbsencesAlerte();
+		if (retards >= 30) {
+			str += " ALERTE RETARDS";
+		}
+			return str;
 		}
 
 	}
