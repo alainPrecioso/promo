@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="17.0.3.1" class="java.beans.XMLDecoder">
+<java version="17.0.2" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="promo.Promo" id="Promo0">
@@ -13,13 +13,12 @@
     </void>
     <void property="eleve">
      <void method="add">
-      <object class="promo.Stagiaire" id="Stagiaire0">
+      <object class="promo.Stagiaire">
        <void property="absences">
         <int>50</int>
        </void>
-       <void id="Boolean0" method="isAlertAbsences"/>
        <void property="alertRetards">
-        <object idref="Boolean0"/>
+        <boolean>true</boolean>
        </void>
        <void property="allocation">
         <string>1696</string>
@@ -262,7 +261,7 @@
      <void method="add">
       <object class="promo.Stagiaire">
        <void property="alertRetards">
-        <object idref="Boolean0"/>
+        <boolean>true</boolean>
        </void>
        <void property="allocation">
         <string>1882</string>
@@ -1346,6 +1345,21 @@
     </void>
     <void property="nomPromo">
      <string>Java 3</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="promo.Promo">
+    <void property="dateDebut">
+     <object class="java.time.LocalDate" method="parse">
+      <string>2022-06-22</string>
+     </object>
+    </void>
+    <void property="duree">
+     <int>120</int>
+    </void>
+    <void property="nomPromo">
+     <string>Python</string>
     </void>
    </object>
   </void>
