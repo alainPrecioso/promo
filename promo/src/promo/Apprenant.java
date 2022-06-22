@@ -72,15 +72,8 @@ public abstract class Apprenant {
 	public void setNomEntreprise(String nomEntreprise) {
 		this.nomEntreprise = nomEntreprise;
 	}
-	public String getRetards() {
-		String retardsString = Integer.toString(retards) + " minutes.";
-		
-		if (retards > 30) {
-			retardsString += " Alerte retards";
-		}
-		
-		
-		return retardsString;
+	public int getRetards() {
+		return retards;
 	}
 	public void setRetards(int retards) {
 		this.retards = retards;
