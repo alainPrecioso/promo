@@ -23,15 +23,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 public class nFenetre extends JFrame {
 	
 	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
 	private JPanel contentPane;
-	private JTextField dureeField;
-	private JTextField nameField;
-	private JButton save;
-	private JTextPane txtpnNouvellePromotion;
+	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -55,98 +54,80 @@ public class nFenetre extends JFrame {
 	public nFenetre() {
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 500);
+		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
 		contentPane.setForeground(Color.WHITE);
 		contentPane.setBackground(UIManager.getColor("Desktop.background"));
 		setContentPane(contentPane);
-		SpringLayout sl_contentPane = new SpringLayout();
-		contentPane.setLayout(sl_contentPane);
+		contentPane.setLayout(null);
 		
-	
-		nameField = new JTextField();
-		nameField.setToolTipText("Nom de promotion");
-		nameField.setText("Nom de promotion");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, nameField, 120, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, nameField, 20, SpringLayout.WEST, contentPane);
-		nameField.setBackground(Color.WHITE);
-		contentPane.add(nameField);
-		nameField.setColumns(10);
+		JPanel panel = new JPanel();
+		panel.setBounds(10, 20, 430, 50);
+		contentPane.add(panel);
 		
-		dureeField = new JTextField();
-		dureeField.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
-		dureeField.setToolTipText("Durée");
-		dureeField.setText("Durée de formation");
-		sl_contentPane.putConstraint(SpringLayout.NORTH, dureeField, 60, SpringLayout.SOUTH, nameField);
-		sl_contentPane.putConstraint(SpringLayout.WEST, dureeField, 0, SpringLayout.WEST, nameField);
-		dureeField.setBackground(Color.WHITE);
-		contentPane.add(dureeField);
-		dureeField.setColumns(10);
+		JLabel lblNewLabel = new JLabel("Promotion");
+		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		panel.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Promotion");
+		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(20, 150, 150, 16);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Date d'inscription");
+		lblNewLabel_1_2.setBounds(20, 250, 150, 16);
+		contentPane.add(lblNewLabel_1_2);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("Durée");
+		lblNewLabel_1_3.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblNewLabel_1_3.setBounds(20, 200, 150, 16);
+		contentPane.add(lblNewLabel_1_3);
+		
+		JButton btnNewButton = new JButton("Valider");
+		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setBounds(15, 325, 100, 30);
+		contentPane.add(btnNewButton);
+		
+		textField = new JTextField();
+		textField.setBounds(190, 150, 230, 16);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(190, 200, 230, 16);
+		contentPane.add(textField_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(20, 330, 88, 20);
+		contentPane.add(panel_1);
+		
 		
 		ArrayList<String> jours = new ArrayList<>();
 		for(int i = 1; i <= 31; i++ ) {
 			jours.add(String.valueOf(i));
-			
 		}
-		JComboBox jour = new JComboBox(jours.toArray());
-		
-		jour.setToolTipText("Jour");
-		jour.setForeground(UIManager.getColor("ScrollBar.foreground"));
-		jour.setBackground(Color.WHITE);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, jour, 60, SpringLayout.SOUTH, dureeField);
-		sl_contentPane.putConstraint(SpringLayout.WEST, jour, 0, SpringLayout.WEST, dureeField);
-		contentPane.add(jour);
-		
+		JComboBox comboBox = new JComboBox(jours.toArray());
+		comboBox.setBounds(180, 250, 95, 16);
+		contentPane.add(comboBox);
 		
 		String[] moiss = {"Janvier", "Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre",
-			"Novembre","Decembre"};
+				"Novembre","Decembre"};
 		
-		//ArrayList<String> mois1 = new ArrayList<>() ;
-		//for(int i = 1; i <= 12; i++) {
-			//mois1.add(String.valueOf(i));
-		//}
-		JComboBox mois = new JComboBox(moiss);
+		JComboBox comboBox_1 = new JComboBox(moiss);
+		comboBox_1.setBounds(265, 250, 95, 16);
+		contentPane.add(comboBox_1);
 		
-		mois.setToolTipText("Mois");
-		mois.setForeground(UIManager.getColor("ScrollBar.foreground"));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, mois, 60, SpringLayout.SOUTH, dureeField);
-		sl_contentPane.putConstraint(SpringLayout.WEST, mois, 20, SpringLayout.EAST, jour);
-		contentPane.add(mois);
 		
 		ArrayList<String> annees = new ArrayList<>();
 		for(int i = 1950; i <= LocalDate.now().getYear() + 1 ; i++) {
 			annees.add(String.valueOf(i));
 		}
-		JComboBox annee = new JComboBox(annees.toArray());
+		JComboBox comboBox_2 = new JComboBox(annees.toArray());
+		comboBox_2.setBounds(350, 250, 95, 16);
+		contentPane.add(comboBox_2);
 		
 		
-		annee.setToolTipText("Année");
-		annee.setForeground(UIManager.getColor("ScrollBar.foreground"));
-		sl_contentPane.putConstraint(SpringLayout.NORTH, annee, 60, SpringLayout.SOUTH, dureeField);
-		sl_contentPane.putConstraint(SpringLayout.WEST, annee, 20, SpringLayout.EAST, mois);
-		contentPane.add(annee);
+		}
 		
-		
-		save = new JButton("Valider");
-		save.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				promos.add(new Promo(nameField.getText(), Integer.valueOf(annee.getSelectedItem().toString()), mois.getSelectedIndex() +1, Integer.valueOf(jour.getSelectedItem().toString()),Integer.parseInt(dureeField.getText())));
-				Ser.save("promos", promos);
-			}
-		});
-		save.setToolTipText("Valider");
-		save.setForeground(Color.WHITE);
-		save.setBackground(Color.WHITE);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, save, 60, SpringLayout.SOUTH, jour);
-		sl_contentPane.putConstraint(SpringLayout.WEST, save, 0, SpringLayout.WEST, jour);
-		contentPane.add(save);
-		
-		txtpnNouvellePromotion = new JTextPane();
-		sl_contentPane.putConstraint(SpringLayout.NORTH, txtpnNouvellePromotion, 30, SpringLayout.NORTH, contentPane);
-		sl_contentPane.putConstraint(SpringLayout.WEST, txtpnNouvellePromotion, 140, SpringLayout.WEST, contentPane);
-
-		txtpnNouvellePromotion.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		txtpnNouvellePromotion.setText("Nouvelle Promotion");
-		contentPane.add(txtpnNouvellePromotion);
 	}
-}

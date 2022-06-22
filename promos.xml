@@ -13,12 +13,13 @@
     </void>
     <void property="eleve">
      <void method="add">
-      <object class="promo.Stagiaire">
+      <object class="promo.Stagiaire" id="Stagiaire0">
        <void property="absences">
         <int>50</int>
        </void>
+       <void id="Boolean0" method="isAlertAbsences"/>
        <void property="alertRetards">
-        <boolean>true</boolean>
+        <object idref="Boolean0"/>
        </void>
        <void property="allocation">
         <string>1696</string>
@@ -261,7 +262,7 @@
      <void method="add">
       <object class="promo.Stagiaire">
        <void property="alertRetards">
-        <boolean>true</boolean>
+        <object idref="Boolean0"/>
        </void>
        <void property="allocation">
         <string>1882</string>
@@ -303,6 +304,12 @@
      </void>
      <void method="add">
       <object class="promo.Stagiaire">
+       <void property="absences">
+        <int>21</int>
+       </void>
+       <void property="alertRetards">
+        <object idref="Boolean0"/>
+       </void>
        <void property="allocation">
         <string>1712</string>
        </void>
@@ -335,6 +342,9 @@
        </void>
        <void property="promo">
         <string>Java 4</string>
+       </void>
+       <void property="retards">
+        <int>36</int>
        </void>
        <void property="typAllo">
         <string>AREF</string>
