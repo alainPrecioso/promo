@@ -3,6 +3,10 @@ package promo;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,8 +21,11 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -33,7 +40,6 @@ public class MainFrame extends JFrame {
 	Integer spot;
 	Promo affichagePromo;
 	JLabel elapsedTime = new JLabel();
-	JButton afficherApprenant;
 	JButton retardButton;
 	JButton absenceButton;
 
@@ -82,22 +88,14 @@ public class MainFrame extends JFrame {
 
 		comboBox = new JComboBox(promos.toArray());
 		panelN.add(comboBox, BorderLayout.NORTH);
-
-		JButton afficherPromo = new JButton("Afficher Promo");
+		comboBox.setSelectedIndex(-1);
 		
-		afficherPromo.addActionListener(new ActionListener() {
+		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				affichagePromo = (Promo) comboBox.getSelectedItem();
-				afficherApprenant.setVisible(true);
-				model.clear();
-				model.addAll(affichagePromo.getEleve());
-				//generalJList.setListData(afficherPromo.getEleve().toArray());
-				elapsedTime.setText(String.valueOf(Duration.between(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays()));
-				panelN.add(elapsedTime, BorderLayout.WEST);
+				printPromo(model, panelN);
 
 			}
 		});
-		panelN.add(afficherPromo, BorderLayout.EAST);
 		
 		JPanel panel = new JPanel();
 		panelN.add(panel, BorderLayout.CENTER);
@@ -105,16 +103,7 @@ public class MainFrame extends JFrame {
 		JButton alertesButton = new JButton("Alertes");
 		alertesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				model.clear();
-				afficherApprenant.setVisible(true);
-				for (Promo promo : promos) {
-					for (Apprenant apprenant : promo.getEleve()) {
-						if (apprenant.isAlertAbsences() == true || apprenant.isAlertRetards() == true) {
-							model.addElement(apprenant);
-						}
-					}
-				}
-				
+				printAlertes(model);
 			}
 		});
 		panel.add(alertesButton);
@@ -126,19 +115,7 @@ public class MainFrame extends JFrame {
 
 		JPanel panelS = new JPanel();
 		contentPane.add(panelS, BorderLayout.SOUTH);
-		
-		
-		
-		
-		afficherApprenant = new JButton("Infos complètes");
-		afficherApprenant.setVisible(false);
-		afficherApprenant.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				printApprenant(generalJList);
-			}
-		});
 		panelS.setLayout(new BorderLayout(0, 0));
-		panelS.add(afficherApprenant, BorderLayout.EAST);
 		
 		detailedList = new JList();
 		panelS.add(detailedList, BorderLayout.SOUTH);
@@ -172,17 +149,28 @@ public class MainFrame extends JFrame {
 			}
 		});
 		panelSC.add(absenceButton);
-		
-		JPanel panelW = new JPanel();
-		contentPane.add(panelW, BorderLayout.WEST);
-
-		JPanel panelC = new JPanel();
-		contentPane.add(panelC, BorderLayout.CENTER);
-		panelC.setLayout(new BorderLayout(0, 0));
-		JPanel panelE = new JPanel();
-		contentPane.add(panelE, BorderLayout.EAST);
 	}
 
+	public void printAlertes (DefaultListModel model) {
+		model.clear();
+		elapsedTime.setText("");
+		for (Promo promo : promos) {
+			for (Apprenant apprenant : promo.getEleve()) {
+				if (apprenant.isAlertAbsences() == true || apprenant.isAlertRetards() == true) {
+					model.addElement(apprenant);
+				}
+			}
+		}
+		
+	}
+	public void printPromo(DefaultListModel model, JPanel panelN) {
+		affichagePromo = (Promo) comboBox.getSelectedItem();
+		model.clear();
+		model.addAll(affichagePromo.getEleve());
+		//generalJList.setListData(afficherPromo.getEleve().toArray());
+		elapsedTime.setText(nbJoursSemaine(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay()) + " jours");
+		panelN.add(elapsedTime, BorderLayout.WEST);
+	}
 	
 	public void printApprenant(JList generalJList) {
 		textField.setVisible(true);
@@ -204,6 +192,18 @@ public class MainFrame extends JFrame {
 		spot = generalJList.getSelectedIndex();
 		
 		detailedList.setListData(selectedApprenant.toArray());
+	}
+	
+	public static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
+		Predicate<LocalDateTime> isWeekend = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
+
+	    long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
+
+	    List<LocalDateTime> list = Stream.iterate(startDate, date -> date.plusDays(1)).limit(daysBetween).filter(isWeekend).collect(Collectors.toList());
+
+	    return String.valueOf(list.size());
+	    
+		
 	}
 
 }
