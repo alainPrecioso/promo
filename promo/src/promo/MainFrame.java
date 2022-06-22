@@ -7,17 +7,35 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import utils.Ser;
+
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.time.Duration;
+import java.time.LocalDate;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 public class MainFrame extends JFrame {
 
-	private JPanel contentPane;
+	JPanel contentPane;
 	JComboBox comboBox;
-	ArrayList<Promo> promos = new ArrayList<Promo>();
+	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
+	JList detailedList;
+	JTextField textField;
+	Integer spot;
+	Promo affichagePromo;
+	JLabel elapsedTime = new JLabel();
+	JButton afficherApprenant;
+	JButton retardButton;
+	JButton absenceButton;
 
 	/**
 	 * Launch the application.
@@ -45,77 +63,147 @@ public class MainFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-		
+
 		JPanel panelN = new JPanel();
 		contentPane.add(panelN, BorderLayout.NORTH);
 		panelN.setLayout(new BorderLayout(0, 0));
+
+		DefaultListModel model = new DefaultListModel();
+		JList generalJList = new JList(model);
+		generalJList.addMouseListener(new MouseAdapter(){
+			public void mouseClicked(MouseEvent evt) {
+				printApprenant(generalJList);
+			}
+		});
 		
-		JList generalJList = new JList();
 		panelN.add(generalJList, BorderLayout.SOUTH);
-		
-		
-		
-		promos.add(genererPromo());
-		promos.add(genererPromo2());
+
+
+
 		comboBox = new JComboBox(promos.toArray());
 		panelN.add(comboBox, BorderLayout.NORTH);
-		
+
 		JButton afficherPromo = new JButton("Afficher Promo");
+		
 		afficherPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Promo afficherPromo = (Promo) comboBox.getSelectedItem();
-				generalJList.setListData(afficherPromo.getEleve().toArray());
-				
+				affichagePromo = (Promo) comboBox.getSelectedItem();
+				afficherApprenant.setVisible(true);
+				model.clear();
+				model.addAll(affichagePromo.getEleve());
+				//generalJList.setListData(afficherPromo.getEleve().toArray());
+				elapsedTime.setText(String.valueOf(Duration.between(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays()));
+				panelN.add(elapsedTime, BorderLayout.WEST);
+
 			}
 		});
 		panelN.add(afficherPromo, BorderLayout.EAST);
 		
+		JPanel panel = new JPanel();
+		panelN.add(panel, BorderLayout.CENTER);
+		
+		JButton alertesButton = new JButton("Alertes");
+		alertesButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				model.clear();
+				afficherApprenant.setVisible(true);
+				for (Promo promo : promos) {
+					for (Apprenant apprenant : promo.getEleve()) {
+						if (apprenant.isAlertAbsences() == true || apprenant.isAlertRetards() == true) {
+							model.addElement(apprenant);
+						}
+					}
+				}
+				
+			}
+		});
+		panel.add(alertesButton);
+		
+		
+		
+		
+		
+
 		JPanel panelS = new JPanel();
 		contentPane.add(panelS, BorderLayout.SOUTH);
 		
+		
+		
+		
+		afficherApprenant = new JButton("Infos complètes");
+		afficherApprenant.setVisible(false);
+		afficherApprenant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				printApprenant(generalJList);
+			}
+		});
+		panelS.setLayout(new BorderLayout(0, 0));
+		panelS.add(afficherApprenant, BorderLayout.EAST);
+		
+		detailedList = new JList();
+		panelS.add(detailedList, BorderLayout.SOUTH);
+		
+		JPanel panelSC = new JPanel();
+		panelS.add(panelSC, BorderLayout.CENTER);
+		
+		textField = new JTextField();
+		textField.setVisible(false);
+		panelSC.add(textField);
+		textField.setColumns(10);
+		
+		retardButton = new JButton("Ajout Retard");
+		retardButton.setVisible(false);
+		retardButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addRetards(Integer.valueOf(textField.getText()));
+				printApprenant(generalJList);
+				Ser.save("promos", promos);
+			}
+		});
+		panelSC.add(retardButton);
+		
+		absenceButton = new JButton("Ajout Absence");
+		absenceButton.setVisible(false);
+		absenceButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addAbsences(Integer.valueOf(textField.getText()));
+				printApprenant(generalJList);
+				Ser.save("promos", promos);
+			}
+		});
+		panelSC.add(absenceButton);
+		
 		JPanel panelW = new JPanel();
 		contentPane.add(panelW, BorderLayout.WEST);
-		
+
 		JPanel panelC = new JPanel();
 		contentPane.add(panelC, BorderLayout.CENTER);
-		
+		panelC.setLayout(new BorderLayout(0, 0));
 		JPanel panelE = new JPanel();
 		contentPane.add(panelE, BorderLayout.EAST);
 	}
+
 	
-	public Promo genererPromo() {
-		ArrayList<String> contact = new ArrayList<String>();
-		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
-		list.add(new Alternant("java", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
-		list.add(new Alternant("jones", "boby", 2022, 03, 01, contact, "domédia", 0, 0, "java", "1800"));
-		list.add(new Alternant("bertrand", "rene", 2022, 05, 01, contact, "lava", 0, 0, "java", "1500"));
-		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
-		list.add(new Alternant("petit", "dilan", 2022, 03, 01, contact, "eureka", 0, 0, "java", "1977"));
-
-		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", 1010));
-		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", 1101));
-		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", 1200));
-		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", 1300));
-		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", 1360));
-		Promo promo = new Promo(list, "Java", 2022, 05, 02, 120);
-		return promo;
-	}
-	public Promo genererPromo2() {
-		ArrayList<String> contact = new ArrayList<String>();
-		ArrayList<Apprenant> list = new ArrayList<Apprenant>();
-		list.add(new Alternant("php", "john", 2022, 04, 01, contact, "optimus", 0, 0, "java", "2500"));
-		list.add(new Alternant("jones", "boby", 2022, 03, 01, contact, "domédia", 0, 0, "java", "1800"));
-		list.add(new Alternant("bertrand", "rene", 2022, 05, 01, contact, "lava", 0, 0, "java", "1500"));
-		list.add(new Alternant("michel", "jacky", 2022, 04, 01, contact, "biotech", 0, 0, "java", "1650"));
-		list.add(new Alternant("petit", "dilan", 2022, 03, 01, contact, "eureka", 0, 0, "java", "1977"));
-
-		list.add(new Stagiaire("kurilenko", "olga", 2022, 04, 01, contact, "optimus",0,0, "java","are", 1010));
-		list.add(new Stagiaire("boutin", "louis", 2022, 07, 01, contact, "optimus", 0, 0, "java","aref", 1101));
-		list.add(new Stagiaire("ceasar", "harry", 2022, 05, 01, contact, "optimus", 0, 0, "java","are", 1200));
-		list.add(new Stagiaire("stark", "aria", 2022, 04, 01, contact, "optimus", 0, 0, "java", "are", 1300));
-		list.add(new Stagiaire("bella", "erika", 2022, 04, 01, contact, "optimus", 0, 0, "java", "aref", 1360));
-		Promo promo = new Promo(list, "PHP", 2022, 05, 02, 120);
-		return promo;
+	public void printApprenant(JList generalJList) {
+		textField.setVisible(true);
+		retardButton.setVisible(true);
+		absenceButton.setVisible(true);
+		ArrayList<String> selectedApprenant = new ArrayList<String>();
+		Object selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0);
+		if (selApp instanceof Stagiaire) {
+			Stagiaire app = (Stagiaire) selApp;
+			selectedApprenant.add(app.toStringComplet());
+			selectedApprenant.addAll(app.getContacts());
+		}
+		if (selApp instanceof Alternant) {
+			Alternant app = (Alternant) selApp;
+			selectedApprenant.add(app.toStringComplet());
+			selectedApprenant.addAll(app.getContacts());
+		}
+		//selectedApprenant.add(selApp.toStringComplet());
+		spot = generalJList.getSelectedIndex();
+		
+		detailedList.setListData(selectedApprenant.toArray());
 	}
 
 }
