@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import utils.PSort;
 import utils.Ser;
 
 import javax.swing.JList;
@@ -39,7 +40,7 @@ public class MainFrame extends JFrame {
 
 	JPanel contentPane;
 	JComboBox comboBox;
-	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
+	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
 	JList detailedList;
 	JTextField textField;
 	Integer spot;
