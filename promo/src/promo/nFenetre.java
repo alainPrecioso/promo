@@ -1,3 +1,4 @@
+package promo;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -8,10 +9,13 @@ import java.awt.FlowLayout;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
+
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.border.LineBorder;
 
-import promo.Promo;
 import utils.Ser;
 
 import javax.swing.JTextField;
@@ -19,6 +23,7 @@ import javax.swing.JComboBox;
 import javax.swing.UIManager;
 import javax.swing.JTextPane;
 import java.awt.Font;
+import java.awt.Window;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.awt.event.ActionListener;
@@ -57,8 +62,6 @@ public class nFenetre extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 500);
 		contentPane = new JPanel();
-		contentPane.setForeground(Color.WHITE);
-		contentPane.setBackground(UIManager.getColor("Desktop.background"));
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
 		contentPane.setLayout(sl_contentPane);
@@ -76,7 +79,7 @@ public class nFenetre extends JFrame {
 		dureeField = new JTextField();
 		dureeField.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
 		dureeField.setToolTipText("Durée");
-		dureeField.setText("Durée de formation");
+		dureeField.setText("0");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, dureeField, 60, SpringLayout.SOUTH, nameField);
 		sl_contentPane.putConstraint(SpringLayout.WEST, dureeField, 0, SpringLayout.WEST, nameField);
 		dureeField.setBackground(Color.WHITE);
@@ -91,8 +94,6 @@ public class nFenetre extends JFrame {
 		JComboBox jour = new JComboBox(jours.toArray());
 		
 		jour.setToolTipText("Jour");
-		jour.setForeground(UIManager.getColor("ScrollBar.foreground"));
-		jour.setBackground(Color.WHITE);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, jour, 60, SpringLayout.SOUTH, dureeField);
 		sl_contentPane.putConstraint(SpringLayout.WEST, jour, 0, SpringLayout.WEST, dureeField);
 		contentPane.add(jour);
@@ -108,7 +109,6 @@ public class nFenetre extends JFrame {
 		JComboBox mois = new JComboBox(moiss);
 		
 		mois.setToolTipText("Mois");
-		mois.setForeground(UIManager.getColor("ScrollBar.foreground"));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, mois, 60, SpringLayout.SOUTH, dureeField);
 		sl_contentPane.putConstraint(SpringLayout.WEST, mois, 20, SpringLayout.EAST, jour);
 		contentPane.add(mois);
@@ -121,7 +121,6 @@ public class nFenetre extends JFrame {
 		
 		
 		annee.setToolTipText("Année");
-		annee.setForeground(UIManager.getColor("ScrollBar.foreground"));
 		sl_contentPane.putConstraint(SpringLayout.NORTH, annee, 60, SpringLayout.SOUTH, dureeField);
 		sl_contentPane.putConstraint(SpringLayout.WEST, annee, 20, SpringLayout.EAST, mois);
 		contentPane.add(annee);
@@ -132,11 +131,27 @@ public class nFenetre extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				promos.add(new Promo(nameField.getText(), Integer.valueOf(annee.getSelectedItem().toString()), mois.getSelectedIndex() +1, Integer.valueOf(jour.getSelectedItem().toString()),Integer.parseInt(dureeField.getText())));
 				Ser.save("promos", promos);
+				
+				Component c = (Component)e.getSource();
+				Component b = c.getParent().getParent().getParent().getParent();
+				System.out.println(b);
+				nFenetre f = (nFenetre) b;
+				f.dispose();
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							MainFrame mainFrame = new MainFrame();
+							mainFrame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
+				
 			}
 		});
 		save.setToolTipText("Valider");
-		save.setForeground(Color.WHITE);
-		save.setBackground(Color.WHITE);
 		sl_contentPane.putConstraint(SpringLayout.NORTH, save, 60, SpringLayout.SOUTH, jour);
 		sl_contentPane.putConstraint(SpringLayout.WEST, save, 0, SpringLayout.WEST, jour);
 		contentPane.add(save);

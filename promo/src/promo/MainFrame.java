@@ -1,7 +1,9 @@
 package promo;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -16,6 +18,7 @@ import utils.Ser;
 
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -28,6 +31,8 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import javax.swing.MutableComboBoxModel;
+import javax.swing.SwingUtilities;
 import javax.swing.JLabel;
 
 public class MainFrame extends JFrame {
@@ -50,8 +55,8 @@ public class MainFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MainFrame frame = new MainFrame();
-					frame.setVisible(true);
+					MainFrame mainFrame = new MainFrame();
+					mainFrame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -85,7 +90,6 @@ public class MainFrame extends JFrame {
 		panelN.add(generalJList, BorderLayout.SOUTH);
 
 
-
 		comboBox = new JComboBox(promos.toArray());
 		panelN.add(comboBox, BorderLayout.NORTH);
 		comboBox.setSelectedIndex(-1);
@@ -98,7 +102,7 @@ public class MainFrame extends JFrame {
 		});
 		
 		JPanel panel = new JPanel();
-		panelN.add(panel, BorderLayout.CENTER);
+		panelN.add(panel, BorderLayout.EAST);
 		
 		JButton alertesButton = new JButton("Alertes");
 		alertesButton.addActionListener(new ActionListener() {
@@ -107,6 +111,36 @@ public class MainFrame extends JFrame {
 			}
 		});
 		panel.add(alertesButton);
+		
+		JPanel panelNewPromo = new JPanel();
+		panelN.add(panelNewPromo, BorderLayout.WEST);
+		
+		JButton newPromo = new JButton("Création promo");
+		panelNewPromo.add(newPromo);
+		
+		JButton newApprenant = new JButton("Création Apprenant");
+		panelNewPromo.add(newApprenant);
+		newPromo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							nFenetre frame = new nFenetre();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+					
+					
+					
+				});
+				Component c = (Component)e.getSource();
+				Component b = c.getParent().getParent().getParent().getParent().getParent().getParent();
+				MainFrame f = (MainFrame) b;
+				f.dispose();
+			}
+		});
 		
 		
 		
@@ -205,5 +239,8 @@ public class MainFrame extends JFrame {
 	    
 		
 	}
+	
+	
+	
 
 }
