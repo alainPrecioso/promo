@@ -71,9 +71,13 @@ public class Promo {
 		this.dateDebut = dateDebut;
 	}
 
+	public void addEleve(Apprenant apprenant) {
+		this.eleve.add(apprenant);
+	}
+	
 	@Override
 	public String toString() {
-		return "Promo : " + nomPromo + " || DateDebut : " + dateDebut + " || Duree : " + duree;
+		return "Promo : " + nomPromo + " || DateDebut : " + dateDebut + " || Duree : " + duree+ eleve;
 	}
 	
 	
