@@ -16,6 +16,7 @@ import java.awt.Component;
 
 import javax.swing.border.LineBorder;
 
+import utils.PSort;
 import utils.Ser;
 
 import javax.swing.JTextField;
@@ -130,12 +131,9 @@ public class nFenetre extends JFrame {
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				promos.add(new Promo(nameField.getText(), Integer.valueOf(annee.getSelectedItem().toString()), mois.getSelectedIndex() +1, Integer.valueOf(jour.getSelectedItem().toString()),Integer.parseInt(dureeField.getText())));
+				PSort.sort(promos);
 				Ser.save("promos", promos);
-				
-				Component c = (Component)e.getSource();
-				Component b = c.getParent().getParent().getParent().getParent();
-				System.out.println(b);
-				nFenetre f = (nFenetre) b;
+				nFenetre f = (nFenetre) ((Component) e.getSource()).getParent().getParent().getParent().getParent();
 				f.dispose();
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {

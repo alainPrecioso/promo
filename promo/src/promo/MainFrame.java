@@ -132,13 +132,8 @@ public class MainFrame extends JFrame {
 							e.printStackTrace();
 						}
 					}
-					
-					
-					
 				});
-				Component c = (Component)e.getSource();
-				Component b = c.getParent().getParent().getParent().getParent().getParent().getParent();
-				MainFrame f = (MainFrame) b;
+				MainFrame f = (MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent();
 				f.dispose();
 			}
 		});
