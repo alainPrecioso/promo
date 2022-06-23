@@ -4,7 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame; // Importation du JFrame
 import javax.swing.JPanel; // Importation du JPanel
-import color
+//import color;
 public class Fenetre extends JFrame {
 
 	public Fenetre() {
@@ -26,7 +26,7 @@ public class Fenetre extends JFrame {
 		pan.setBackground(Color.blue);
 		// On previent notre JFrame que notre JPanel sera
 		// Son content pane
-		this.setContentPane(pan);
-		this.setVisible(true);
+		fenetre.setContentPane(pan);
+		fenetre.setVisible(true);
 	}
 }
