@@ -76,48 +76,48 @@ public class EleveFenetre extends JFrame {
 		labelNE.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		
 		JLabel promoLabel = new JLabel("promotion");
-		promoLabel.setBounds(10, 100, 125, 16);
+		promoLabel.setBounds(10, 100, 125, 21);
 		promoLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		contentPane.add(promoLabel);
 		
 		JLabel staAltLabel = new JLabel("Salaire");
 		staAltLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		staAltLabel.setBounds(10, 150, 125, 16);
+		staAltLabel.setBounds(10, 150, 125, 21);
 		contentPane.add(staAltLabel);
 		
 		JLabel nomLabel = new JLabel("Nom");
 		nomLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		nomLabel.setBounds(10, 200, 125, 16);
+		nomLabel.setBounds(10, 200, 125, 21);
 		contentPane.add(nomLabel);
 		
 		JTextPane nomTxtPanel = new JTextPane();
 		nomTxtPanel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		nomTxtPanel.setBounds(230, 200, 145, 16);
+		nomTxtPanel.setBounds(230, 200, 145, 21);
 		contentPane.add(nomTxtPanel);
 		
 		JLabel prenomLabel = new JLabel("Prénom");
 		prenomLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		prenomLabel.setBounds(10, 250, 125, 16);
+		prenomLabel.setBounds(10, 250, 125, 21);
 		contentPane.add(prenomLabel);
 		
 		JTextPane prenomTxtPanel = new JTextPane();
 		prenomTxtPanel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		prenomTxtPanel.setBounds(230, 250, 145, 16);
+		prenomTxtPanel.setBounds(230, 250, 145, 21);
 		contentPane.add(prenomTxtPanel);
 		
 		JLabel entrLabel = new JLabel("Entreprise");
 		entrLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		entrLabel.setBounds(10, 350, 125, 16);
+		entrLabel.setBounds(10, 350, 125, 21);
 		contentPane.add(entrLabel);
 		
 		JTextPane entrTxtPanel = new JTextPane();
 		entrTxtPanel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		entrTxtPanel.setBounds(230, 350, 145, 16);
+		entrTxtPanel.setBounds(230, 350, 145, 21);
 		contentPane.add(entrTxtPanel);
 		
 		JComboBox promoCombo = new JComboBox(promos.toArray());
 		promoCombo.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		promoCombo.setBounds(230, 100, 150, 16);
+		promoCombo.setBounds(230, 100, 150, 21);
 		contentPane.add(promoCombo);
 		promoCombo.setSelectedIndex(-1);
 		
@@ -126,7 +126,7 @@ public class EleveFenetre extends JFrame {
 
 		JComboBox staAltCombo = new JComboBox(staAlt);
 		staAltCombo.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		staAltCombo.setBounds(230, 150, 150, 16);
+		staAltCombo.setBounds(230, 150, 150, 21);
 		contentPane.add(staAltCombo);
 		staAltCombo.setSelectedIndex(-1);
 		
@@ -134,54 +134,55 @@ public class EleveFenetre extends JFrame {
 		
 		
 		JButton buttonValider = new JButton("Valider");
-		buttonValider.setBounds(10, 550, 117, 32);
+		buttonValider.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		buttonValider.setBounds(10, 560, 117, 39);
 		contentPane.add(buttonValider);
 		
 		JLabel salaireLabel = new JLabel("Salaire");
 		salaireLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		salaireLabel.setBounds(10, 400, 125, 16);
+		salaireLabel.setBounds(10, 400, 125, 21);
 		contentPane.add(salaireLabel);
 		salaireLabel.setVisible(false);
 		
 		JLabel contact1Label = new JLabel("Contact1");
 		contact1Label.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		contact1Label.setBounds(10, 450, 125, 16);
+		contact1Label.setBounds(10, 450, 125, 21);
 		contentPane.add(contact1Label);
 		
 		JLabel contact2Label = new JLabel("Contact2");
 		contact2Label.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		contact2Label.setBounds(10, 500, 125, 16);
+		contact2Label.setBounds(10, 500, 125, 21);
 		contentPane.add(contact2Label);
 		
 		String[] type = {"ARE","AREF","RSA","AUTRE"};
 		JComboBox typeASBox = new JComboBox(type);
-		typeASBox.setBounds(174, 400, 52, 16);
+		typeASBox.setBounds(140, 400, 85, 21);
 		contentPane.add(typeASBox);
 		
 		
 		JTextPane typeASPanel = new JTextPane();
 		typeASPanel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		typeASPanel.setBounds(230, 400, 145, 16);
+		typeASPanel.setBounds(230, 400, 145, 21);
 		contentPane.add(typeASPanel);
 		
 		JTextPane contact1Txt = new JTextPane();
 		contact1Txt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		contact1Txt.setBounds(230, 450, 145, 16);
+		contact1Txt.setBounds(230, 450, 145, 21);
 		contentPane.add(contact1Txt);
 		
 		JTextPane contact2Txt = new JTextPane();
 		contact2Txt.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		contact2Txt.setBounds(230, 500, 145, 16);
+		contact2Txt.setBounds(230, 500, 145, 21);
 		contentPane.add(contact2Txt);
 		
 		JLabel allocationLabel = new JLabel("Allocation");
 		allocationLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		allocationLabel.setBounds(10, 400, 125, 16);
+		allocationLabel.setBounds(10, 400, 125, 21);
 		contentPane.add(allocationLabel);
 		
 		JLabel lblDateDinscription = new JLabel("Date d'inscription");
 		lblDateDinscription.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblDateDinscription.setBounds(10, 300, 150, 16);
+		lblDateDinscription.setBounds(10, 300, 150, 21);
 		contentPane.add(lblDateDinscription);
 		
 		ArrayList<String> jours = new ArrayList<>();
@@ -190,14 +191,14 @@ public class EleveFenetre extends JFrame {
 			}
 			
 		JComboBox typeASBox_1 = new JComboBox(jours.toArray());
-		typeASBox_1.setBounds(208, 300, 52, 16);
+		typeASBox_1.setBounds(180, 300, 85, 21);
 		contentPane.add(typeASBox_1);
 		
 		String[] moiss = {"Janvier", "Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre",
 				"Novembre","Decembre"};
 		
 		JComboBox typeASBox_2 = new JComboBox(moiss);
-		typeASBox_2.setBounds(272, 300, 52, 16);
+		typeASBox_2.setBounds(260, 300, 85, 21);
 		contentPane.add(typeASBox_2);
 		
 		ArrayList<String> annees = new ArrayList<>();
@@ -205,7 +206,7 @@ public class EleveFenetre extends JFrame {
 			annees.add(String.valueOf(i));
 		}
 		JComboBox typeASBox_3 = new JComboBox(annees.toArray());
-		typeASBox_3.setBounds(336, 300, 52, 16);
+		typeASBox_3.setBounds(340, 300, 85, 21);
 		contentPane.add(typeASBox_3);
 		
 		staAltCombo.addActionListener(new ActionListener() {

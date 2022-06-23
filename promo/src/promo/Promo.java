@@ -77,7 +77,7 @@ public class Promo {
 	
 	@Override
 	public String toString() {
-		return "Promo : " + nomPromo + " || DateDebut : " + dateDebut + " || Duree : " + duree+ eleve;
+		return "Promo : " + nomPromo + " || DateDebut : " + dateDebut + " || Duree : " + duree;//+ eleve;
 	}
 	
 	
