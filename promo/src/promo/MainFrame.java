@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
 	JTextField textField;
 	Integer spot;
 	Promo affichagePromo;
-	JLabel elapsedTime = new JLabel();
+	JLabel timeLabel = new JLabel("");
 	JButton retardButton;
 	JButton absenceButton;
 
@@ -122,6 +122,11 @@ public class MainFrame extends JFrame {
 		
 		JButton newApprenant = new JButton("Création Apprenant");
 		panelNewPromo.add(newApprenant);
+		
+		
+		panelN.add(timeLabel, BorderLayout.CENTER);
+		
+		
 		newPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -183,7 +188,7 @@ public class MainFrame extends JFrame {
 
 	public void printAlertes (DefaultListModel model) {
 		model.clear();
-		elapsedTime.setText("");
+		timeLabel.setText("");
 		for (Promo promo : promos) {
 			for (Apprenant apprenant : promo.getEleve()) {
 				if (apprenant.isAlertAbsences() == true || apprenant.isAlertRetards() == true) {
@@ -198,8 +203,9 @@ public class MainFrame extends JFrame {
 		model.clear();
 		model.addAll(affichagePromo.getEleve());
 		//generalJList.setListData(afficherPromo.getEleve().toArray());
-		elapsedTime.setText(nbJoursSemaine(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay()) + " jours");
-		panelN.add(elapsedTime, BorderLayout.WEST);
+		String jr = nbJoursSemaine(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay());
+		String jr2 = String.valueOf(affichagePromo.getDuree() - Integer.valueOf(jr));
+		timeLabel.setText(jr + " jours passés, " + jr2 + " jours restants");
 	}
 	
 	public void printApprenant(JList generalJList) {
@@ -224,6 +230,8 @@ public class MainFrame extends JFrame {
 		detailedList.setListData(selectedApprenant.toArray());
 	}
 	
+	
+	//L
 	public static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
 		Predicate<LocalDateTime> isWeekend = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
 
