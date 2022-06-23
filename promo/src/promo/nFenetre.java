@@ -60,7 +60,14 @@ public class nFenetre extends JFrame {
 		setResizable(false);
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 450);
+		
+		
+		if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+			setBounds(100, 100, 650, 450);
+		} else {
+			setBounds(100, 100, 450, 450);
+		}
+		
 		contentPane = new JPanel();
 		setContentPane(contentPane);
 		SpringLayout sl_contentPane = new SpringLayout();
