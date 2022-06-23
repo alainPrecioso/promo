@@ -11,9 +11,12 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.SpringLayout;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.border.LineBorder;
 
 import promo.Promo;
+import utils.PSort;
 import utils.Ser;
 
 import javax.swing.JTextField;
@@ -31,8 +34,8 @@ public class nFenetre extends JFrame {
 	
 	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField nameField;
+	private JTextField dureeField;
 
 	/**
 	 * Launch the application.
@@ -54,51 +57,44 @@ public class nFenetre extends JFrame {
 	 * Create the frame.
 	 */
 	public nFenetre() {
+		setResizable(false);
 		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		SpringLayout sl_contentPane = new SpringLayout();
+		contentPane.setLayout(sl_contentPane);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 20, 430, 50);
-		contentPane.add(panel);
+		JLabel promotionLabel = new JLabel("Promotion");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, promotionLabel, 150, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, promotionLabel, 20, SpringLayout.WEST, contentPane);
+		promotionLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		contentPane.add(promotionLabel);
 		
-		JLabel lblNewLabel = new JLabel("Promotion");
-		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
-		panel.add(lblNewLabel);
+		JLabel dateLabel = new JLabel("Date de début");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, dateLabel, 250, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, dateLabel, 20, SpringLayout.WEST, contentPane);
+		dateLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		contentPane.add(dateLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Promotion");
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(20, 150, 150, 16);
-		contentPane.add(lblNewLabel_1);
+		JLabel dureeLabel = new JLabel("Durée");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, dureeLabel, 200, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, dureeLabel, 20, SpringLayout.WEST, contentPane);
+		dureeLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		contentPane.add(dureeLabel);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Date d'inscription");
-		lblNewLabel_1_2.setBounds(20, 250, 150, 16);
-		contentPane.add(lblNewLabel_1_2);
+		JButton save = new JButton("Valider");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, save, 325, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, save, 15, SpringLayout.WEST, contentPane);
+		contentPane.add(save);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Durée");
-		lblNewLabel_1_3.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-		lblNewLabel_1_3.setBounds(20, 200, 150, 16);
-		contentPane.add(lblNewLabel_1_3);
 		
-		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBounds(15, 325, 100, 30);
-		contentPane.add(btnNewButton);
 		
-		textField = new JTextField();
-		textField.setBounds(190, 150, 230, 16);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(190, 200, 230, 16);
-		contentPane.add(textField_1);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(20, 330, 88, 20);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, panel_1, 330, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, panel_1, 20, SpringLayout.WEST, contentPane);
 		contentPane.add(panel_1);
 		
 		
@@ -106,26 +102,74 @@ public class nFenetre extends JFrame {
 		for(int i = 1; i <= 31; i++ ) {
 			jours.add(String.valueOf(i));
 		}
-		JComboBox comboBox = new JComboBox(jours.toArray());
-		comboBox.setBounds(180, 250, 95, 16);
-		contentPane.add(comboBox);
+		JComboBox joursCombo = new JComboBox(jours.toArray());
+		sl_contentPane.putConstraint(SpringLayout.NORTH, joursCombo, 250, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, joursCombo, 180, SpringLayout.WEST, contentPane);
+		contentPane.add(joursCombo);
+		joursCombo.setSelectedIndex(LocalDate.now().getDayOfMonth()-1);
 		
 		String[] moiss = {"Janvier", "Février","Mars","Avril","Mai","Juin","Juillet","Aout","Septembre","Octobre",
 				"Novembre","Decembre"};
 		
-		JComboBox comboBox_1 = new JComboBox(moiss);
-		comboBox_1.setBounds(265, 250, 95, 16);
-		contentPane.add(comboBox_1);
+		JComboBox moisCombo = new JComboBox(moiss);
+		sl_contentPane.putConstraint(SpringLayout.NORTH, moisCombo, 0, SpringLayout.NORTH, joursCombo);
+		sl_contentPane.putConstraint(SpringLayout.WEST, moisCombo, 0, SpringLayout.EAST, joursCombo);
+		contentPane.add(moisCombo);
+		moisCombo.setSelectedIndex(LocalDate.now().getMonthValue()-1);
 		
 		
 		ArrayList<String> annees = new ArrayList<>();
-		for(int i = 1950; i <= LocalDate.now().getYear() + 1 ; i++) {
+		for(int i = LocalDate.now().getYear() - 1; i <= LocalDate.now().getYear() + 1 ; i++) {
 			annees.add(String.valueOf(i));
 		}
-		JComboBox comboBox_2 = new JComboBox(annees.toArray());
-		comboBox_2.setBounds(350, 250, 95, 16);
-		contentPane.add(comboBox_2);
+		JComboBox anCombo = new JComboBox(annees.toArray());
+		sl_contentPane.putConstraint(SpringLayout.NORTH, anCombo, 0, SpringLayout.NORTH, joursCombo);
+		sl_contentPane.putConstraint(SpringLayout.WEST, anCombo, 0, SpringLayout.EAST, moisCombo);
+		contentPane.add(anCombo);
+		anCombo.setSelectedIndex(1);
 		
+
+		nameField = new JTextField();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, nameField, 150, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, nameField, 0, SpringLayout.WEST, joursCombo);
+		sl_contentPane.putConstraint(SpringLayout.EAST, nameField, 0, SpringLayout.EAST, anCombo);
+		contentPane.add(nameField);
+		nameField.setColumns(10);
+		
+		dureeField = new JTextField();
+		sl_contentPane.putConstraint(SpringLayout.NORTH, dureeField, 200, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, dureeField, 0, SpringLayout.WEST, joursCombo);
+		sl_contentPane.putConstraint(SpringLayout.EAST, dureeField, 0, SpringLayout.EAST, anCombo);
+		dureeField.setColumns(10);
+		contentPane.add(dureeField);
+		
+		JLabel lblNewLabel = new JLabel("Promotion");
+		sl_contentPane.putConstraint(SpringLayout.NORTH, lblNewLabel, 30, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.WEST, lblNewLabel, 150, SpringLayout.WEST, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.EAST, lblNewLabel, 50, SpringLayout.EAST, contentPane);
+		contentPane.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		
+		
+		save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				promos.add(new Promo(nameField.getText(), Integer.valueOf(anCombo.getSelectedItem().toString()), moisCombo.getSelectedIndex() +1, Integer.valueOf(joursCombo.getSelectedItem().toString()),Integer.parseInt(dureeField.getText())));
+				PSort.sort(promos);
+				Ser.save("promos", promos);
+				((nFenetre) ((Component) e.getSource()).getParent().getParent().getParent().getParent()).dispose();
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							MainFrame mainFrame = new MainFrame();
+							mainFrame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		
+	});
 		
 		}
 		

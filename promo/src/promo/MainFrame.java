@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import utils.PSort;
 import utils.Ser;
 
 import javax.swing.JList;
@@ -40,7 +41,7 @@ public class MainFrame extends JFrame {
 
 	JPanel contentPane;
 	JComboBox comboBox;
-	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
+	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
 	JList detailedList;
 	JTextField textField;
 	Integer spot;
@@ -121,7 +122,6 @@ public class MainFrame extends JFrame {
 		
 		JButton newApprenant = new JButton("Création Apprenant");
 		panelNewPromo.add(newApprenant);
-		
 		newPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -133,14 +133,8 @@ public class MainFrame extends JFrame {
 							e.printStackTrace();
 						}
 					}
-					
-					
-					
 				});
-				Component c = (Component)e.getSource();
-				Component b = c.getParent().getParent().getParent().getParent().getParent().getParent();
-				MainFrame f = (MainFrame) b;
-				f.dispose();
+				((MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent()).dispose();
 			}
 		});
 		
