@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import utils.PSort;
 import utils.Ser;
 
 import javax.swing.JList;
@@ -40,12 +41,12 @@ public class MainFrame extends JFrame {
 
 	JPanel contentPane;
 	JComboBox comboBox;
-	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
+	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
 	JList detailedList;
 	JTextField textField;
 	Integer spot;
 	Promo affichagePromo;
-	JLabel elapsedTime = new JLabel();
+	JLabel timeLabel = new JLabel("");
 	JButton retardButton;
 	JButton absenceButton;
 
@@ -118,31 +119,43 @@ public class MainFrame extends JFrame {
 		
 		JButton newPromo = new JButton("Création promo");
 		panelNewPromo.add(newPromo);
-		
-		JButton newApprenant = new JButton("Création Apprenant");
-		panelNewPromo.add(newApprenant);
-		
 		newPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							nFenetre frame = new nFenetre();
+							NFenetre frame = new NFenetre();
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}
-					
-					
-					
 				});
-				Component c = (Component)e.getSource();
-				Component b = c.getParent().getParent().getParent().getParent().getParent().getParent();
-				MainFrame f = (MainFrame) b;
-				f.dispose();
+				((MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent()).dispose();
 			}
 		});
+		
+		JButton newApprenant = new JButton("Création Apprenant");
+		panelNewPromo.add(newApprenant);
+		newApprenant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							EleveFenetre frame = new EleveFenetre();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				((MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent()).dispose();
+			}
+		});
+		
+		panelN.add(timeLabel, BorderLayout.CENTER);
+		
+		
 		
 		
 		
@@ -189,7 +202,7 @@ public class MainFrame extends JFrame {
 
 	public void printAlertes (DefaultListModel model) {
 		model.clear();
-		elapsedTime.setText("");
+		timeLabel.setText("");
 		for (Promo promo : promos) {
 			for (Apprenant apprenant : promo.getEleve()) {
 				if (apprenant.isAlertAbsences() == true || apprenant.isAlertRetards() == true) {
@@ -204,8 +217,9 @@ public class MainFrame extends JFrame {
 		model.clear();
 		model.addAll(affichagePromo.getEleve());
 		//generalJList.setListData(afficherPromo.getEleve().toArray());
-		elapsedTime.setText(nbJoursSemaine(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay()) + " jours");
-		panelN.add(elapsedTime, BorderLayout.WEST);
+		String jr = nbJoursSemaine(affichagePromo.getDateDebut().atStartOfDay(), LocalDate.now().atStartOfDay());
+		String jr2 = String.valueOf(affichagePromo.getDuree() - Integer.valueOf(jr));
+		timeLabel.setText(jr + " jours passés, " + jr2 + " jours restants");
 	}
 	
 	public void printApprenant(JList generalJList) {
@@ -230,6 +244,8 @@ public class MainFrame extends JFrame {
 		detailedList.setListData(selectedApprenant.toArray());
 	}
 	
+	
+	//L
 	public static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
 		Predicate<LocalDateTime> isWeekend = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
 
