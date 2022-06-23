@@ -127,7 +127,7 @@ public class MainFrame extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							nFenetre frame = new nFenetre();
+							NFenetre frame = new NFenetre();
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();
