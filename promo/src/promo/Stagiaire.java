@@ -42,7 +42,7 @@ public class Stagiaire extends Apprenant {
 
 	@Override
 	public String toString() {
-		String str = "Stagiaire --> || Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri;
+		String str = "Nom: " +nom+ "|| Prenom: " +prenom+ " || Date inscription: " +dateInscri;
 		if (alertAbsences == true || alertRetards == true) {
 			str += " ALERTE";
 		}
@@ -51,10 +51,10 @@ public class Stagiaire extends Apprenant {
 
 	@Override
 	public String toStringComplet() {
-		String str = nom+ ", " +prenom+ ", " +dateInscri+
+		String str = "Stagiaire --> " + nom+ ", " +prenom+ ", " +dateInscri+
 				", " +promo+ ", " +typAllo+ ", " +allocation+ 
 			    "€, " +nomEntreprise+ ", "
-				+retards+ " minutes, "+absences;
+				+retards+ " minutes, "+absences + " jours";
 		if (alertAbsences == true || alertRetards == true) {
 			str += " ALERTE";
 		}

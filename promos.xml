@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="17.0.3.1" class="java.beans.XMLDecoder">
+<java version="17.0.2" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="promo.Promo" id="Promo0">
@@ -60,7 +60,7 @@
       </object>
      </void>
      <void method="add">
-      <object class="promo.Stagiaire">
+      <object class="promo.Stagiaire" id="Stagiaire1">
        <void property="allocation">
         <string>1940</string>
        </void>
@@ -97,6 +97,7 @@
        <void property="typAllo">
         <string>ARE</string>
        </void>
+       <void id="Boolean1" method="isAlertAbsences"/>
       </object>
      </void>
      <void method="add">
@@ -304,6 +305,12 @@
      </void>
      <void method="add">
       <object class="promo.Stagiaire">
+       <void property="absences">
+        <int>21</int>
+       </void>
+       <void property="alertRetards">
+        <object idref="Boolean0"/>
+       </void>
        <void property="allocation">
         <string>1712</string>
        </void>
@@ -336,6 +343,9 @@
        </void>
        <void property="promo">
         <string>Java 4</string>
+       </void>
+       <void property="retards">
+        <int>36</int>
        </void>
        <void property="typAllo">
         <string>AREF</string>
@@ -1123,6 +1133,15 @@
      </void>
      <void method="add">
       <object class="promo.Alternant">
+       <void property="absences">
+        <int>50</int>
+       </void>
+       <void property="alertAbsences">
+        <object idref="Boolean1"/>
+       </void>
+       <void property="alertRetards">
+        <object idref="Boolean0"/>
+       </void>
        <void property="contacts">
         <object class="java.util.ArrayList">
          <void method="add">
@@ -1152,6 +1171,9 @@
        </void>
        <void property="promo">
         <string>Java 3</string>
+       </void>
+       <void property="retards">
+        <int>50</int>
        </void>
        <void property="salaire">
         <string>1518</string>
@@ -1346,6 +1368,21 @@
     </void>
     <void property="nomPromo">
      <string>Java 3</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="promo.Promo">
+    <void property="dateDebut">
+     <object class="java.time.LocalDate" method="parse">
+      <string>2022-06-22</string>
+     </object>
+    </void>
+    <void property="duree">
+     <int>120</int>
+    </void>
+    <void property="nomPromo">
+     <string>Python</string>
     </void>
    </object>
   </void>

@@ -25,6 +25,12 @@ public class Promo {
 		// TODO Auto-generated constructor stub
 	
 	}
+	public Promo(String nomPromo, Integer annee, Integer mois, Integer jour, Integer duree) {
+		this.nomPromo = nomPromo;
+		this.dateDebut = LocalDate.of(annee, mois, jour);
+		this.duree = duree;
+		}
+	
 	public int getDuree() {
 		return duree;
 	}
