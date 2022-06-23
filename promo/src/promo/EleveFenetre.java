@@ -10,6 +10,10 @@ import javax.swing.SpringLayout;
 import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -18,13 +22,21 @@ import javax.swing.border.CompoundBorder;
 import java.awt.ComponentOrientation;
 import java.awt.Component;
 import javax.swing.border.LineBorder;
+
+import utils.PSort;
+import utils.Ser;
+
 import java.awt.Color;
+
+import javax.swing.ComboBoxModel;
 import javax.swing.DropMode;
 import javax.swing.JButton;
 
 public class EleveFenetre extends JFrame {
 
 	private JPanel contentPane;
+	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
+
 
 	/**
 	 * Launch the application.
@@ -52,62 +64,81 @@ public class EleveFenetre extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBounds(10, 20, 430, 50);
-		contentPane.add(panel);
+		JPanel panelNE = new JPanel();
+		panelNE.setBounds(10, 20, 430, 50);
+		contentPane.add(panelNE);
 		
-		JLabel lblNewLabel = new JLabel("Nouvelle élève");
-		panel.add(lblNewLabel);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		JLabel labelNE = new JLabel("Nouvelle élève");
+		panelNE.add(labelNE);
+		labelNE.setHorizontalAlignment(SwingConstants.CENTER);
+		labelNE.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		
-		JLabel lblNewLabel_1 = new JLabel("promotion");
-		lblNewLabel_1.setBounds(10, 100, 125, 16);
-		lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
-		contentPane.add(lblNewLabel_1);
+		JLabel promoLabel = new JLabel("promotion");
+		promoLabel.setBounds(10, 100, 125, 16);
+		promoLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 15));
+		contentPane.add(promoLabel);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Stagiaire/Alternant");
-		lblNewLabel_1_1.setBounds(10, 150, 125, 16);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel staAltLabel = new JLabel("Stagiaire/Alternant");
+		staAltLabel.setBounds(10, 150, 125, 16);
+		contentPane.add(staAltLabel);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Nom");
-		lblNewLabel_1_2.setBounds(10, 200, 125, 16);
-		contentPane.add(lblNewLabel_1_2);
+		JLabel nomLabel = new JLabel("Nom");
+		nomLabel.setBounds(10, 200, 125, 16);
+		contentPane.add(nomLabel);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Prénom");
-		lblNewLabel_1_3.setBounds(10, 250, 125, 16);
-		contentPane.add(lblNewLabel_1_3);
+		JLabel prenomLabel = new JLabel("Prénom");
+		prenomLabel.setBounds(10, 250, 125, 16);
+		contentPane.add(prenomLabel);
 		
-		JLabel lblNewLabel_1_4 = new JLabel("Entreprise");
-		lblNewLabel_1_4.setBounds(10, 300, 125, 16);
-		contentPane.add(lblNewLabel_1_4);
+		JLabel entrLabel = new JLabel("Entreprise");
+		entrLabel.setBounds(10, 300, 125, 16);
+		contentPane.add(entrLabel);
 		
-		JTextPane textPane_2 = new JTextPane();
-		textPane_2.setBounds(230, 200, 145, 16);
-		contentPane.add(textPane_2);
+		JTextPane nomTxtPanel = new JTextPane();
+		nomTxtPanel.setBounds(230, 200, 145, 16);
+		contentPane.add(nomTxtPanel);
 		
-		JTextPane textPane_3 = new JTextPane();
-		textPane_3.setBounds(230, 250, 145, 16);
-		contentPane.add(textPane_3);
+		JTextPane prenomTxtPanel = new JTextPane();
+		prenomTxtPanel.setBounds(230, 250, 145, 16);
+		contentPane.add(prenomTxtPanel);
 		
-		JTextPane textPane_4 = new JTextPane();
-		textPane_4.setBounds(230, 300, 145, 16);
-		contentPane.add(textPane_4);
+		JTextPane entrTxtPanel = new JTextPane();
+		entrTxtPanel.setBounds(230, 300, 145, 16);
+		contentPane.add(entrTxtPanel);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(230, 100, 150, 16);
-		contentPane.add(comboBox);
+		JComboBox promoCombo = new JComboBox(promos.toArray());
+		promoCombo.setBounds(230, 100, 150, 16);
+		contentPane.add(promoCombo);
+		promoCombo.setSelectedIndex(-1);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(230, 150, 150, 16);
-		contentPane.add(comboBox_1);
 		
-		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBounds(20, 370, 117, 29);
-		contentPane.add(btnNewButton);
+		String[] staAlt = {"Stagiaire", "Alternant"};
+		String[] staAlt1 = {"Stagia", "Altrnant"};
+
+		JComboBox staAltCombo = new JComboBox(staAlt);
+		staAltCombo.setBounds(230, 150, 150, 16);
+		contentPane.add(staAltCombo);
+		staAltCombo.setSelectedIndex(-1);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(24, 370, 110, 27);
-		contentPane.add(panel_1);
+		staAltCombo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(staAltCombo.getSelectedIndex()== 0) {
+				JComboBox staAltCombo1 = new JComboBox(staAlt1);
+				staAltCombo1.setBounds(230, 250, 150, 16);
+				contentPane.add(staAltCombo1);
+				}
+
+			}
+		});
+		
+		
+		
+		JButton buttonValider = new JButton("Valider");
+		buttonValider.setBounds(20, 370, 117, 29);
+		contentPane.add(buttonValider);
+		
+		JPanel panelValider = new JPanel();
+		panelValider.setBounds(24, 370, 110, 27);
+		contentPane.add(panelValider);
 	}
 }
