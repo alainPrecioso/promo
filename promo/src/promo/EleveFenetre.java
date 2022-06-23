@@ -226,7 +226,6 @@ public class EleveFenetre extends JFrame {
 		
 		buttonValider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//System.out.println(((EleveFenetre)((Component) e.getSource()).getParent().getParent().getParent().getParent()));
 				ArrayList<String> contacts = new ArrayList<>();
 				Collections.addAll(contacts, contact1Txt.getText(), contact2Txt.getText());
 				
@@ -240,8 +239,18 @@ public class EleveFenetre extends JFrame {
 					((Promo)promoCombo.getSelectedItem()).addEleve(new Alternant(nomTxtPanel.getText(),prenomTxtPanel.getText(), Integer.valueOf(typeASBox_3.getSelectedItem().toString()), typeASBox_2.getSelectedIndex()+1, Integer.valueOf(typeASBox_1.getSelectedItem().toString()), contacts, entrTxtPanel.getText(),	typeASPanel.getText()));
 					Ser.save("promos", promos);
 				}
-				//((EleveFenetre)((Component) e.getSource()).getParent().getParent().getParent().getParent()).dispose();
+				((EleveFenetre)((Component) e.getSource()).getParent().getParent().getParent().getParent()).dispose();
 
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							MainFrame mainFrame = new MainFrame();
+							mainFrame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 			}	
 		}
 	);

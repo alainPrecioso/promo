@@ -119,14 +119,6 @@ public class MainFrame extends JFrame {
 		
 		JButton newPromo = new JButton("Création promo");
 		panelNewPromo.add(newPromo);
-		
-		JButton newApprenant = new JButton("Création Apprenant");
-		panelNewPromo.add(newApprenant);
-		
-		
-		panelN.add(timeLabel, BorderLayout.CENTER);
-		
-		
 		newPromo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EventQueue.invokeLater(new Runnable() {
@@ -142,6 +134,28 @@ public class MainFrame extends JFrame {
 				((MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent()).dispose();
 			}
 		});
+		
+		JButton newApprenant = new JButton("Création Apprenant");
+		panelNewPromo.add(newApprenant);
+		newApprenant.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							EleveFenetre frame = new EleveFenetre();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				((MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent()).dispose();
+			}
+		});
+		
+		panelN.add(timeLabel, BorderLayout.CENTER);
+		
+		
 		
 		
 		
