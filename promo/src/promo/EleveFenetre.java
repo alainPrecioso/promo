@@ -22,7 +22,7 @@ import java.awt.Color;
 import javax.swing.DropMode;
 import javax.swing.JButton;
 
-public class eleveFenetre extends JFrame {
+public class EleveFenetre extends JFrame {
 
 	private JPanel contentPane;
 
@@ -33,7 +33,7 @@ public class eleveFenetre extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					eleveFenetre frame = new eleveFenetre();
+					EleveFenetre frame = new EleveFenetre();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class eleveFenetre extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public eleveFenetre() {
+	public EleveFenetre() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
