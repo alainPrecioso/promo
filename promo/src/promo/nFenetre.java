@@ -1,3 +1,5 @@
+package promo;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -56,8 +58,6 @@ public class nFenetre extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
-		contentPane.setForeground(Color.WHITE);
-		contentPane.setBackground(UIManager.getColor("Desktop.background"));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -84,7 +84,6 @@ public class nFenetre extends JFrame {
 		contentPane.add(lblNewLabel_1_3);
 		
 		JButton btnNewButton = new JButton("Valider");
-		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.setBounds(15, 325, 100, 30);
 		contentPane.add(btnNewButton);
 		

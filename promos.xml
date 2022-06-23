@@ -13,12 +13,13 @@
     </void>
     <void property="eleve">
      <void method="add">
-      <object class="promo.Stagiaire">
+      <object class="promo.Stagiaire" id="Stagiaire0">
        <void property="absences">
         <int>50</int>
        </void>
+       <void id="Boolean0" method="isAlertAbsences"/>
        <void property="alertRetards">
-        <boolean>true</boolean>
+        <object idref="Boolean0"/>
        </void>
        <void property="allocation">
         <string>1696</string>
@@ -59,7 +60,7 @@
       </object>
      </void>
      <void method="add">
-      <object class="promo.Stagiaire">
+      <object class="promo.Stagiaire" id="Stagiaire1">
        <void property="allocation">
         <string>1940</string>
        </void>
@@ -96,6 +97,7 @@
        <void property="typAllo">
         <string>ARE</string>
        </void>
+       <void id="Boolean1" method="isAlertAbsences"/>
       </object>
      </void>
      <void method="add">
@@ -261,7 +263,7 @@
      <void method="add">
       <object class="promo.Stagiaire">
        <void property="alertRetards">
-        <boolean>true</boolean>
+        <object idref="Boolean0"/>
        </void>
        <void property="allocation">
         <string>1882</string>
@@ -303,6 +305,12 @@
      </void>
      <void method="add">
       <object class="promo.Stagiaire">
+       <void property="absences">
+        <int>21</int>
+       </void>
+       <void property="alertRetards">
+        <object idref="Boolean0"/>
+       </void>
        <void property="allocation">
         <string>1712</string>
        </void>
@@ -335,6 +343,9 @@
        </void>
        <void property="promo">
         <string>Java 4</string>
+       </void>
+       <void property="retards">
+        <int>36</int>
        </void>
        <void property="typAllo">
         <string>AREF</string>
@@ -1122,6 +1133,15 @@
      </void>
      <void method="add">
       <object class="promo.Alternant">
+       <void property="absences">
+        <int>50</int>
+       </void>
+       <void property="alertAbsences">
+        <object idref="Boolean1"/>
+       </void>
+       <void property="alertRetards">
+        <object idref="Boolean0"/>
+       </void>
        <void property="contacts">
         <object class="java.util.ArrayList">
          <void method="add">
@@ -1151,6 +1171,9 @@
        </void>
        <void property="promo">
         <string>Java 3</string>
+       </void>
+       <void property="retards">
+        <int>50</int>
        </void>
        <void property="salaire">
         <string>1518</string>
