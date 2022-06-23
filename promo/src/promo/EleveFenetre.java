@@ -49,20 +49,15 @@ public class EleveFenetre extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 450);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Desktop.background"));
-		contentPane.setForeground(SystemColor.menu);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBounds(10, 20, 430, 50);
-		panel.setBackground(SystemColor.menu);
 		contentPane.add(panel);
 		
 		JLabel lblNewLabel = new JLabel("Nouvelle élève");
 		panel.add(lblNewLabel);
-		lblNewLabel.setBackground(SystemColor.control);
-		lblNewLabel.setForeground(SystemColor.windowText);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
 		
