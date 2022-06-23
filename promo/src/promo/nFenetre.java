@@ -133,8 +133,7 @@ public class nFenetre extends JFrame {
 				promos.add(new Promo(nameField.getText(), Integer.valueOf(annee.getSelectedItem().toString()), mois.getSelectedIndex() +1, Integer.valueOf(jour.getSelectedItem().toString()),Integer.parseInt(dureeField.getText())));
 				PSort.sort(promos);
 				Ser.save("promos", promos);
-				nFenetre f = (nFenetre) ((Component) e.getSource()).getParent().getParent().getParent().getParent();
-				f.dispose();
+				((nFenetre) ((Component) e.getSource()).getParent().getParent().getParent().getParent()).dispose();
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {

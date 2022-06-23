@@ -133,8 +133,7 @@ public class MainFrame extends JFrame {
 						}
 					}
 				});
-				MainFrame f = (MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent();
-				f.dispose();
+				((MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent()).dispose();
 			}
 		});
 		
