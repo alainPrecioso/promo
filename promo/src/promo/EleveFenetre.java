@@ -1,61 +1,32 @@
 package promo;
-import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.UIManager;
-import javax.swing.SpringLayout;
-import javax.swing.JTextField;
 import java.awt.Font;
-import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.JTextField;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 import javax.swing.SwingConstants;
-import javax.swing.border.CompoundBorder;
-import java.awt.ComponentOrientation;
-import java.awt.Component;
-import javax.swing.border.LineBorder;
 
 import utils.PSort;
 import utils.Ser;
-
-import java.awt.Color;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.DropMode;
-import javax.swing.JButton;
 
 @SuppressWarnings("serial")
 public class EleveFenetre extends JFrame {
 
 	private JPanel contentPane;
-	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
+	private ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EleveFenetre frame = new EleveFenetre();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -99,7 +70,7 @@ public class EleveFenetre extends JFrame {
 		contentPane.add(anCombo);
 		anCombo.setSelectedIndex(1);
 		
-		JLabel promoLabel = new JLabel("promotion");
+		JLabel promoLabel = new JLabel("Promotion");
 		sl_contentPane.putConstraint(SpringLayout.NORTH, promoLabel, 100, SpringLayout.NORTH, contentPane);
 		sl_contentPane.putConstraint(SpringLayout.WEST, promoLabel, 10, SpringLayout.WEST, contentPane);
 		contentPane.add(promoLabel);

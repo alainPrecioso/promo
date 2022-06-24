@@ -1,57 +1,31 @@
 package promo;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.FlowLayout;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
-import javax.swing.SpringLayout;
-import java.awt.Color;
 import java.awt.Component;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
-import javax.swing.border.LineBorder;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
 
-import promo.Promo;
 import utils.PSort;
 import utils.Ser;
 
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.UIManager;
-import javax.swing.JTextPane;
-import java.awt.Font;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-
 public class NFenetre extends JFrame {
 	
-	ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
+	private ArrayList<Promo> promos = (ArrayList<Promo>) Ser.load("promos.xml");
 	private JPanel contentPane;
 	private JTextField nameField;
 	private JTextField dureeField;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					NFenetre frame = new NFenetre();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

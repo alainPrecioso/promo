@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 public class Promo {
 	private ArrayList<Apprenant> eleve = new ArrayList<Apprenant>();
 	
-	protected String nomPromo;
+	private String nomPromo;
 	private LocalDate dateDebut;
 	private int duree;
 	

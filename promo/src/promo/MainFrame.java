@@ -34,32 +34,19 @@ import utils.Ser;
 
 public class MainFrame extends JFrame {
 
-	
-	JPanel contentPane; //panneau principal
-	JComboBox comboBox; //menu déroulant qui contiendra les promos
-	DefaultComboBoxModel promoBox; //model pour le menu déroulant
+	//attributs de MainFrame
+	private JPanel contentPane; //panneau principal
+	private JComboBox comboBox; //menu déroulant qui contiendra les promos
+	private DefaultComboBoxModel promoBox; //model pour le menu déroulant
 	//chargement et tri de la database
-	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
-	JList detailedList; //infos détaillés d'un apprenant
-	JTextField textField; //field pour entrer les retards ou absences
-	Promo affichagePromo; //variable qui stock la promo récupéré dans le menu déroulant
-	JLabel timeLabel = new JLabel(""); //label qui affichera les jours passés et restants
-	JButton retardButton; //boutton pour ajouter un retard
-	JButton absenceButton;//boutton pour ajouter une absence
+	private ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
+	private JList detailedList; //infos détaillés d'un apprenant
+	private JTextField textField; //field pour entrer les retards ou absences
+	private Promo affichagePromo; //variable qui stock la promo récupéré dans le menu déroulant
+	private JLabel timeLabel = new JLabel(""); //label qui affichera les jours passés et restants
+	private JButton retardButton; //boutton pour ajouter un retard
+	private JButton absenceButton;//boutton pour ajouter une absence
 
-	//point d'entrée de l'application
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainFrame mainFrame = new MainFrame();
-					mainFrame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	//constructeur de MainFrame
 	public MainFrame() {
@@ -203,7 +190,7 @@ public class MainFrame extends JFrame {
 	}
 
 	//method qui affiche une liste de tous les apprenants flagués pour retard/absence
-	public void printAlertes (DefaultListModel model) {
+	private void printAlertes (DefaultListModel model) {
 		model.clear(); //vide la liste
 		timeLabel.setText(""); //vide l'affichage temps passé
 		for (Promo promo : promos) { //pour chaque Promo dans promos
@@ -218,7 +205,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	//method qui récupère la promo séléctionnée dans le menu déroulant pour afficher ses élèves
-	public void printPromo(DefaultListModel model, JPanel panelN) {
+	private void printPromo(DefaultListModel model, JPanel panelN) {
 		affichagePromo = (Promo) comboBox.getSelectedItem();
 		model.clear();
 		model.addAll(affichagePromo.getEleve());
@@ -229,7 +216,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	//method pour afficher les infos détaillés d'un apprenant
-	public void printApprenant(JList generalJList) {
+	private void printApprenant(JList generalJList) {
 		//affiche les boutons retards/absences
 		textField.setVisible(true);
 		retardButton.setVisible(true);
@@ -245,12 +232,12 @@ public class MainFrame extends JFrame {
 	
 	
 	//compte les jours entre deux dates et filtre les weekends
-	public static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
+	private static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
 		//prédicat de dates qui sont true si leur jour de semaine n'est ni samedi ni dimanche
 		Predicate<LocalDateTime> isWeekend = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
 		//compte le nombre de jours entre les deux dates pour arrêter le stream
 		long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
-		//???
+		//step 1 : crée une liste de dates, step 2 : ???, step 3 : profit!
 	    List<LocalDateTime> list = Stream.iterate(startDate, date -> date.plusDays(1)).limit(daysBetween).filter(isWeekend).collect(Collectors.toList());
 	    //return la size de la liste qui contient tous les jours qui ne sont ni samedi ni dimanche
 	    return String.valueOf(list.size());
