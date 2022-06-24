@@ -34,6 +34,7 @@ import javax.swing.ComboBoxModel;
 import javax.swing.DropMode;
 import javax.swing.JButton;
 
+@SuppressWarnings("serial")
 public class EleveFenetre extends JFrame {
 
 	private JPanel contentPane;
@@ -157,7 +158,7 @@ public class EleveFenetre extends JFrame {
 		String[] staAlt = {"Stagiaire", "Alternant"};
 
 		JComboBox staAltCombo = new JComboBox(staAlt);
-		sl_contentPane.putConstraint(SpringLayout.NORTH, staAltCombo, 150, SpringLayout.NORTH, contentPane);
+		sl_contentPane.putConstraint(SpringLayout.VERTICAL_CENTER, staAltCombo, 0, SpringLayout.VERTICAL_CENTER, staAltLabel);
 		sl_contentPane.putConstraint(SpringLayout.WEST, staAltCombo, 0, SpringLayout.WEST, joursCombo);
 		sl_contentPane.putConstraint(SpringLayout.EAST, staAltCombo, 0, SpringLayout.EAST, anCombo);
 		contentPane.add(staAltCombo);

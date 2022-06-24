@@ -3,60 +3,52 @@ package promo;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.EventQueue;
-import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 
 import utils.PSort;
 import utils.Ser;
 
-import javax.swing.JList;
-import javax.swing.JComboBox;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.time.DayOfWeek;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
-import javax.swing.MutableComboBoxModel;
-import javax.swing.SwingUtilities;
-import javax.swing.JLabel;
-
 
 public class MainFrame extends JFrame {
 
-	JPanel contentPane;
-	static JComboBox comboBox;
-	static DefaultComboBoxModel promoBox;
+	
+	JPanel contentPane; //panneau principal
+	JComboBox comboBox; //menu déroulant qui contiendra les promos
+	DefaultComboBoxModel promoBox; //model pour le menu déroulant
+	//chargement de la database
 	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
-	JList detailedList;
-	JTextField textField;
-	Integer spot;
-	Promo affichagePromo;
-	JLabel timeLabel = new JLabel("");
-	JButton retardButton;
-	JButton absenceButton;
+	JList detailedList; //infos détaillés d'un apprenant
+	JTextField textField; //field pour entrer les retards ou absences
+	Integer spot; //variable qui pointe vers l'indexe d'élève dans sa promo
+	Promo affichagePromo; //variable qui stock la promo récupéré dans le menu déroulant
+	JLabel timeLabel = new JLabel(""); //label qui affichera les jours passés et restants
+	JButton retardButton; //boutton pour ajouter un retard
+	JButton absenceButton;//boutton pour ajouter une absence
 
-	/**
-	 * Launch the application.
-	 */
+	//point d'entrée de l'application
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -73,6 +65,7 @@ public class MainFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public MainFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1149, 527);
@@ -207,6 +200,7 @@ public class MainFrame extends JFrame {
 		
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void printAlertes (DefaultListModel model) {
 		model.clear();
 		timeLabel.setText("");
@@ -219,6 +213,7 @@ public class MainFrame extends JFrame {
 		}
 		
 	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void printPromo(DefaultListModel model, JPanel panelN) {
 		affichagePromo = (Promo) comboBox.getSelectedItem();
 		model.clear();
@@ -229,6 +224,7 @@ public class MainFrame extends JFrame {
 		timeLabel.setText(jr + " jours passés, " + jr2 + " jours restants");
 	}
 	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void printApprenant(JList generalJList) {
 		textField.setVisible(true);
 		retardButton.setVisible(true);
@@ -263,12 +259,5 @@ public class MainFrame extends JFrame {
 	    return String.valueOf(list.size());
 	    
 		
-	}
-	public static void updateCombo() {
-		promoBox.removeElementAt(0);
-//		ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
-//		for (Promo promo : promos) {
-//			promoBox.addElement(promo);
-//		}
 	}
 }
