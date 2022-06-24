@@ -13,6 +13,8 @@ import java.util.stream.Stream;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
 
 import utils.PSort;
 import utils.Ser;
@@ -20,6 +22,7 @@ import utils.Ser;
 import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -40,7 +43,8 @@ import javax.swing.JLabel;
 public class MainFrame extends JFrame {
 
 	JPanel contentPane;
-	JComboBox comboBox;
+	static JComboBox comboBox;
+	static DefaultComboBoxModel promoBox;
 	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
 	JList detailedList;
 	JTextField textField;
@@ -91,8 +95,8 @@ public class MainFrame extends JFrame {
 		
 		panelN.add(generalJList, BorderLayout.SOUTH);
 
-
-		comboBox = new JComboBox(promos.toArray());
+		promoBox = new DefaultComboBoxModel(promos.toArray());
+		comboBox = new JComboBox(promoBox);
 		panelN.add(comboBox, BorderLayout.NORTH);
 		comboBox.setSelectedIndex(-1);
 		
@@ -132,6 +136,7 @@ public class MainFrame extends JFrame {
 					}
 				});
 				((MainFrame) ((Component)e.getSource()).getParent().getParent().getParent().getParent().getParent().getParent()).dispose();
+				
 			}
 		});
 		
@@ -198,6 +203,8 @@ public class MainFrame extends JFrame {
 			}
 		});
 		panelSC.add(absenceButton);
+		
+		
 	}
 
 	public void printAlertes (DefaultListModel model) {
@@ -245,7 +252,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	
-	//L
+	
 	public static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
 		Predicate<LocalDateTime> isWeekend = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
 
@@ -256,5 +263,12 @@ public class MainFrame extends JFrame {
 	    return String.valueOf(list.size());
 	    
 		
+	}
+	public static void updateCombo() {
+		promoBox.removeElementAt(0);
+//		ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
+//		for (Promo promo : promos) {
+//			promoBox.addElement(promo);
+//		}
 	}
 }

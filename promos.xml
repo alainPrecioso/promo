@@ -914,6 +914,21 @@
    </object>
   </void>
   <void method="add">
+   <object class="promo.Promo">
+    <void property="dateDebut">
+     <object class="java.time.LocalDate" method="parse">
+      <string>2022-06-24</string>
+     </object>
+    </void>
+    <void property="duree">
+     <int>300</int>
+    </void>
+    <void property="nomPromo">
+     <string>Perl</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
    <object class="promo.Promo" id="Promo2">
     <void property="dateDebut">
      <object class="java.time.LocalDate" method="parse">
@@ -1384,40 +1399,6 @@
      <void method="add">
       <object class="promo.Stagiaire">
        <void property="allocation">
-        <string>2000</string>
-       </void>
-       <void property="contacts">
-        <object class="java.util.ArrayList">
-         <void method="add">
-          <string>Patrick Starfish 04 00 00 00 00</string>
-         </void>
-         <void method="add">
-          <string>Patrick Starfish 04 00 00 00 00</string>
-         </void>
-        </object>
-       </void>
-       <void property="dateInscri">
-        <object class="java.time.LocalDate" method="parse">
-         <string>2022-06-23</string>
-        </object>
-       </void>
-       <void property="nom">
-        <string>l&apos;éponge</string>
-       </void>
-       <void property="nomEntreprise">
-        <string>Krusty Krabs</string>
-       </void>
-       <void property="prenom">
-        <string>bob</string>
-       </void>
-       <void property="typAllo">
-        <string>AUTRE</string>
-       </void>
-      </object>
-     </void>
-     <void method="add">
-      <object class="promo.Stagiaire">
-       <void property="allocation">
         <string>5000</string>
        </void>
        <void property="contacts">
@@ -1443,6 +1424,40 @@
        </void>
        <void property="prenom">
         <string>Mario</string>
+       </void>
+       <void property="typAllo">
+        <string>AUTRE</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="allocation">
+        <string>2000</string>
+       </void>
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Patrick Starfish 04 00 00 00 00</string>
+         </void>
+         <void method="add">
+          <string>Patrick Starfish 04 00 00 00 00</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2022-06-23</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>l&apos;éponge</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Krusty Krabs</string>
+       </void>
+       <void property="prenom">
+        <string>bob</string>
        </void>
        <void property="typAllo">
         <string>AUTRE</string>
