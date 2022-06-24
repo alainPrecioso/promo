@@ -26,7 +26,7 @@ public class Alternant extends Apprenant{
 
 	@Override
 	public String toString() {
-		String str = "Nom: " +nom+ " || Prenom: " +prenom+ " || Date inscription: " + dateInscri;
+		String str = prenom+ " " +nom+ " || Date inscription: " + dateInscri;
 		
 		if (alertAbsences == true || alertRetards == true) {
 			str += " ALERTE";
@@ -36,8 +36,8 @@ public class Alternant extends Apprenant{
 	
 	@Override
 	public String toStringComplet() {
-		String str ="Alternant --> " + nom+", "+prenom+", "+dateInscri+", "
-				 +promo+", "+salaire+"€, "+nomEntreprise+", "
+		String str = prenom+", "+nom+", "+dateInscri+", "
+				 +promo+", "+salaire+"€, salarié à "+nomEntreprise+", "
 				 +retards+" minutes, "+absences + " jours";
 		
 		if (alertAbsences == true || alertRetards == true) {

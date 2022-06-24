@@ -1,7 +1,14 @@
 package promo;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Promo {
 	private ArrayList<Apprenant> eleve = new ArrayList<Apprenant>();
@@ -77,10 +84,19 @@ public class Promo {
 	
 	@Override
 	public String toString() {
-		return "Promo : " + nomPromo + " || DateDebut : " + dateDebut + " || Duree : " + duree+ eleve;
+		return nomPromo + " || DateDebut : " + dateDebut + " || Duree : " + duree +
+				" jours, " + nbJoursSemaine(dateDebut.atStartOfDay(), LocalDate.now().atStartOfDay()) + " passés, " + 
+				String.valueOf(duree - Integer.valueOf(nbJoursSemaine(dateDebut.atStartOfDay(), LocalDate.now().atStartOfDay()))) + " restants";
 	}
 	
-	
-	
+	public static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
+		Predicate<LocalDateTime> isWeekend = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
 
+	    long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
+
+	    List<LocalDateTime> list = Stream.iterate(startDate, date -> date.plusDays(1)).limit(daysBetween).filter(isWeekend).collect(Collectors.toList());
+
+	    return String.valueOf(list.size());
+	}
+	
 }

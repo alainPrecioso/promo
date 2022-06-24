@@ -161,7 +161,7 @@
       </object>
      </void>
      <void method="add">
-      <object class="promo.Alternant" id="Alternant0">
+      <object class="promo.Alternant">
        <void property="contacts">
         <object class="java.util.ArrayList">
          <void method="add">
@@ -195,11 +195,10 @@
        <void property="salaire">
         <string>1529</string>
        </void>
-       <void id="Boolean0" method="isAlertAbsences"/>
       </object>
      </void>
      <void method="add">
-      <object class="promo.Alternant">
+      <object class="promo.Alternant" id="Alternant0">
        <void property="contacts">
         <object class="java.util.ArrayList">
          <void method="add">
@@ -233,6 +232,7 @@
        <void property="salaire">
         <string>1594</string>
        </void>
+       <void id="Boolean0" method="isAlertAbsences"/>
       </object>
      </void>
      <void method="add">
@@ -1409,6 +1409,40 @@
        </void>
        <void property="prenom">
         <string>bob</string>
+       </void>
+       <void property="typAllo">
+        <string>AUTRE</string>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="promo.Stagiaire">
+       <void property="allocation">
+        <string>5000</string>
+       </void>
+       <void property="contacts">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Princess Peach 04 05 06 01 02</string>
+         </void>
+         <void method="add">
+          <string>Toad 07 08 09 04 05</string>
+         </void>
+        </object>
+       </void>
+       <void property="dateInscri">
+        <object class="java.time.LocalDate" method="parse">
+         <string>2022-06-24</string>
+        </object>
+       </void>
+       <void property="nom">
+        <string>Mario</string>
+       </void>
+       <void property="nomEntreprise">
+        <string>Nintendo</string>
+       </void>
+       <void property="prenom">
+        <string>Mario</string>
        </void>
        <void property="typAllo">
         <string>AUTRE</string>
