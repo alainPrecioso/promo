@@ -106,11 +106,11 @@ public class PromoGenerator {
 	}
 	
 	public static Alternant randomAlternant() {
-		return new Alternant(randomName(), randomName(), randomYear(), randomMonth(), randomDay(), new ArrayList<String>(Arrays.asList(randomContact(), randomContact())), randomEmployer(), randomSalary());
+		return new Alternant(randomName(), randomName(), randomYear(), randomMonth(), randomDay(), new ArrayList<String>(Arrays.asList(randomContact(), randomContact())), null, randomEmployer(), randomSalary());
 	}
 	
 	public static Stagiaire randomStagiaire() {
-		return new Stagiaire(randomName(), randomName(), randomYear(), randomMonth(), randomDay(), new ArrayList<String>(Arrays.asList(randomContact(), randomContact())), randomEmployer(), randomType(), randomSalary());
+		return new Stagiaire(randomName(), randomName(), randomYear(), randomMonth(), randomDay(), new ArrayList<String>(Arrays.asList(randomContact(), randomContact())), null, randomEmployer(), randomType(), randomSalary());
 	}
 	
 	
