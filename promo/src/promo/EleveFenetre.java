@@ -254,13 +254,13 @@ public class EleveFenetre extends JFrame {
 				
 				if(staAltCombo.getSelectedIndex()== 0) {
 					
-					promos.get(promoCombo.getSelectedIndex()).addEleve(new Stagiaire(nomTxtPanel.getText(),prenomTxtPanel.getText(), Integer.valueOf(anCombo.getSelectedItem().toString()), moisCombo.getSelectedIndex()+1, Integer.valueOf(joursCombo.getSelectedItem().toString()), contacts, entrTxtPanel.getText(), typeASBox.getSelectedItem().toString(), typeASPanel.getText()));
+					promos.get(promoCombo.getSelectedIndex()).addEleve(new Stagiaire(nomTxtPanel.getText(),prenomTxtPanel.getText(), Integer.valueOf(anCombo.getSelectedItem().toString()), moisCombo.getSelectedIndex()+1, Integer.valueOf(joursCombo.getSelectedItem().toString()), contacts, promoCombo.getSelectedItem().toString() , entrTxtPanel.getText(), typeASBox.getSelectedItem().toString(), typeASPanel.getText()));
 					PSort.sort(promos);
 					Ser.save("promos", promos);
 				}
 				
 				if(staAltCombo.getSelectedItem().equals("Alternant")) {
-					promos.get(promoCombo.getSelectedIndex()).addEleve(new Alternant(nomTxtPanel.getText(),prenomTxtPanel.getText(), Integer.valueOf(anCombo.getSelectedItem().toString()), moisCombo.getSelectedIndex()+1, Integer.valueOf(joursCombo.getSelectedItem().toString()), contacts, entrTxtPanel.getText(),	typeASPanel.getText()));
+					promos.get(promoCombo.getSelectedIndex()).addEleve(new Alternant(nomTxtPanel.getText(),prenomTxtPanel.getText(), Integer.valueOf(anCombo.getSelectedItem().toString()), moisCombo.getSelectedIndex()+1, Integer.valueOf(joursCombo.getSelectedItem().toString()), contacts, promoCombo.getSelectedItem().toString() , entrTxtPanel.getText(),	typeASPanel.getText()));
 					PSort.sort(promos);
 					Ser.save("promos", promos);
 				}

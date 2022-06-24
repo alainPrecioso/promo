@@ -23,12 +23,13 @@ public abstract class Apprenant {
 		
 	}
 	
-	public Apprenant(String nom, String prenom, Integer annee, Integer mois, Integer jour, ArrayList<String> contacts, String nomEntreprise) {
+	public Apprenant(String nom, String prenom, Integer annee, Integer mois, Integer jour, ArrayList<String> contacts, String promo, String nomEntreprise) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateInscri = LocalDate.of(annee, mois, jour);
 		this.contacts = contacts;
+		this.promo=promo;
 		this.nomEntreprise = nomEntreprise;
 	}
 

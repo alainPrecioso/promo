@@ -10,8 +10,8 @@ public class Alternant extends Apprenant{
 	}
 
 	public Alternant(String nom, String prenom, Integer annee, Integer mois, Integer jour, ArrayList<String> contacts,
-			String nomEntreprise, String salaire ) {
-		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise);
+			String promo, String nomEntreprise, String salaire ) {
+		super(nom, prenom, annee, mois, jour, contacts, promo, nomEntreprise);
 	this.salaire = salaire;
 	
 	}

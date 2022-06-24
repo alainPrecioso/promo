@@ -13,9 +13,9 @@ public class Stagiaire extends Apprenant {
 
 
 	protected Stagiaire(String nom, String prenom, Integer annee, Integer mois, Integer jour,
-			ArrayList<String> contacts, String nomEntreprise, String typAllo, String allocation) {
+			ArrayList<String> contacts, String promo, String nomEntreprise, String typAllo, String allocation) {
 		
-		super(nom, prenom, annee, mois, jour, contacts, nomEntreprise);
+		super(nom, prenom, annee, mois, jour, contacts, promo, nomEntreprise);
 		this.typAllo = typAllo;
 		this.allocation = allocation;
 }
