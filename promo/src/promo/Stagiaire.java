@@ -1,39 +1,64 @@
 package promo;
 
-public class Stagiaire {
+import java.util.ArrayList;
+
+public class Stagiaire extends Apprenant {
 	
 	protected String typAllo;
-	protected Double allocation;
+	protected String allocation;
 
 	public Stagiaire() {
 		
 	}
 
-	public Stagiaire(String typAllo, Double allocation) {
-		super();
+
+	protected Stagiaire(String nom, String prenom, Integer annee, Integer mois, Integer jour,
+			ArrayList<String> contacts, String promo, String nomEntreprise, String typAllo, String allocation) {
+		
+		super(nom, prenom, annee, mois, jour, contacts, promo, nomEntreprise);
 		this.typAllo = typAllo;
 		this.allocation = allocation;
-	}
-
-	protected String getTypAllo() {
+}
+	
+	public String getTypAllo() {
 		return typAllo;
 	}
 
-	protected void setTypAllo(String typAllo) {
+
+	public void setTypAllo(String typAllo) {
 		this.typAllo = typAllo;
 	}
 
-	protected Double getAllocation() {
+
+	public String getAllocation() {
 		return allocation;
 	}
 
-	protected void setAllocation(Double allocation) {
+
+	public void setAllocation(String allocation) {
 		this.allocation = allocation;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Stagiaire [TypAllo=" + typAllo + ", Allocation=" + allocation + "]";
+		String str = prenom+ " " +nom+ " || Date inscription: " +dateInscri;
+		if (alertAbsences == true || alertRetards == true) {
+			str += " ALERTE";
+		}
+		return str;
 	}
 
-}
+	@Override
+	public String toStringComplet() {
+		String str = prenom+ " " +nom+ ", " +dateInscri+
+				", " +promo+ ", " +typAllo+ ", " +allocation+ 
+			    "€, Stagiaire a " +nomEntreprise+ ", "
+				+retards+ " minutes, "+absences + " jours";
+		if (alertAbsences == true || alertRetards == true) {
+			str += " ALERTE";
+		}
+			return str;
+		}
+
+	}
