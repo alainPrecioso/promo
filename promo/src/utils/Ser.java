@@ -34,7 +34,7 @@ public class Ser {
 		return serial;
 	}
 	
-	public static void saveXML(String fileName, Object object) throws IOException {
+	private static void saveXML(String fileName, Object object) throws IOException {
 		fileName += ".xml";
 		FileOutputStream fileOut = new FileOutputStream(fileName);
 		XMLEncoder out = new XMLEncoder(fileOut);
@@ -53,7 +53,7 @@ public class Ser {
 		fileOut.close();
 	}
 	
-	public static Object loadXML(String path) throws IOException, ClassNotFoundException {
+	private static Object loadXML(String path) throws IOException, ClassNotFoundException {
 		Object serial = null;
 		FileInputStream fileIn = new FileInputStream(path);
 		XMLDecoder in = new XMLDecoder(fileIn);
