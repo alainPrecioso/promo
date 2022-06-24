@@ -42,7 +42,6 @@ public class MainFrame extends JFrame {
 	ArrayList<Promo> promos = PSort.sort((ArrayList<Promo>) Ser.load("promos.xml"));
 	JList detailedList; //infos détaillés d'un apprenant
 	JTextField textField; //field pour entrer les retards ou absences
-	Integer spot; //variable qui pointe vers l'indexe d'élève dans sa promo
 	Promo affichagePromo; //variable qui stock la promo récupéré dans le menu déroulant
 	JLabel timeLabel = new JLabel(""); //label qui affichera les jours passés et restants
 	JButton retardButton; //boutton pour ajouter un retard
@@ -180,7 +179,7 @@ public class MainFrame extends JFrame {
 		retardButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//ajoute le retard entré dans la zone de texte à l'élève puis sauvegarde
-				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addRetards(Integer.valueOf(textField.getText()));
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(generalJList.getSelectedIndex()).addRetards(Integer.valueOf(textField.getText()));
 				printApprenant(generalJList);
 				Ser.save("promos", promos);
 			}
@@ -193,7 +192,7 @@ public class MainFrame extends JFrame {
 		absenceButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//ajoute l'absence entrée dans la zone de texte à l'élève puis sauvegarde
-				promos.get(comboBox.getSelectedIndex()).getEleve().get(spot).addAbsences(Integer.valueOf(textField.getText()));
+				promos.get(comboBox.getSelectedIndex()).getEleve().get(generalJList.getSelectedIndex()).addAbsences(Integer.valueOf(textField.getText()));
 				printApprenant(generalJList);
 				Ser.save("promos", promos);
 			}
@@ -229,37 +228,31 @@ public class MainFrame extends JFrame {
 		timeLabel.setText(jr + " jours passés, " + jr2 + " jours restants");
 	}
 	
-	
+	//method pour afficher les infos détaillés d'un apprenant
 	public void printApprenant(JList generalJList) {
+		//affiche les boutons retards/absences
 		textField.setVisible(true);
 		retardButton.setVisible(true);
 		absenceButton.setVisible(true);
+		//liste à afficher dans la jlist
 		ArrayList<String> selectedApprenant = new ArrayList<String>();
-		Object selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0);
-		if (selApp instanceof Stagiaire) {
-			Stagiaire app = (Stagiaire) selApp;
-			selectedApprenant.add(app.toStringComplet());
-			selectedApprenant.addAll(app.getContacts());
-		}
-		if (selApp instanceof Alternant) {
-			Alternant app = (Alternant) selApp;
-			selectedApprenant.add(app.toStringComplet());
-			selectedApprenant.addAll(app.getContacts());
-		}
-		spot = generalJList.getSelectedIndex();
-		
-		detailedList.setListData(selectedApprenant.toArray());
+		//récupère l'apprenant selectionné
+		Apprenant selApp = (Apprenant)  generalJList.getSelectedValuesList().get(0); //si plusieurs sélectionnés, ne prend que le premier
+		selectedApprenant.add(selApp.toStringComplet());//ajoute le string d'infos détaillés
+		selectedApprenant.addAll(selApp.getContacts());//ajoute tous les contacts
+		detailedList.setListData(selectedApprenant.toArray());//affiche
 	}
 	
 	
-	
+	//compte les jours entre deux dates et filtre les weekends
 	public static String nbJoursSemaine(LocalDateTime startDate, LocalDateTime endDate) {
+		//prédicat de dates qui sont true si leur jour de semaine n'est ni samedi ni dimanche
 		Predicate<LocalDateTime> isWeekend = date -> date.getDayOfWeek() != DayOfWeek.SATURDAY && date.getDayOfWeek() != DayOfWeek.SUNDAY;
-
-	    long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
-
+		//compte le nombre de jours entre les deux dates pour arrêter le stream
+		long daysBetween = ChronoUnit.DAYS.between(startDate, endDate);
+		//???
 	    List<LocalDateTime> list = Stream.iterate(startDate, date -> date.plusDays(1)).limit(daysBetween).filter(isWeekend).collect(Collectors.toList());
-
+	    //return la size de la liste qui contient tous les jours qui ne sont ni samedi ni dimanche
 	    return String.valueOf(list.size());
 	    
 		
