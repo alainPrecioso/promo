@@ -25,6 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -70,8 +71,8 @@ public class MainFrame extends JFrame {
 				printApprenant(generalJList); //method qui affiche les infos détaillées d'un apprenant 
 			}
 		});
-		
-		panelN.add(generalJList, BorderLayout.SOUTH);
+		JScrollPane jScrollPane = new JScrollPane(generalJList);
+		panelN.add(jScrollPane, BorderLayout.SOUTH);
 		promoBox = new DefaultComboBoxModel(promos.toArray());
 		comboBox = new JComboBox(promoBox);
 		panelN.add(comboBox, BorderLayout.NORTH);
